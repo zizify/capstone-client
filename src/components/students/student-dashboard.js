@@ -12,7 +12,7 @@ export class StudentDashboard extends React.Component {
   render() {
     return (
       <div className="student-dashboard">
-        Hello, {this.props.name}
+        <h1 className="student-greeting"> Hello, {this.props.name} </h1>
       </div>
     );
   }
