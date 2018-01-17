@@ -11,13 +11,13 @@ export class StudentDashboard extends React.Component {
 
   render() {
     if (!this.props.student) {
-      console.log('In Loading Mode', this.props.student)
+      console.log('InLoadingMode Student', this.props.student)
       return <h1>Loading....</h1>;
    }
     const studentData = this.props.student.relevant.map((student, index) => {
       return <li key={index}> {student.className}, {student.subject}, {student.title}, {student.dueDate}, {student.goals}, {student.points}, {student.teacher}, {student.instructions}</li>;
     });
-      console.log('STUDENTDATA', studentData);
+      console.log('Mapped_STUDENTDATA', studentData);
     return (
       <div className="student-dashboard">
         <h1 className="student-greeting"> Hello, {this.props.name} </h1>
