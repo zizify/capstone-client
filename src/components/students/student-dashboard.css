@@ -28,6 +28,7 @@
   padding: 15px 20px;
   border-radius: 44px;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .nav-links .nav-link:first-child {

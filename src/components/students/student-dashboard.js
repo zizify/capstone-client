@@ -13,7 +13,7 @@ export class StudentDashboard extends React.Component {
 
   clickDayLink = e => {
     const dayofweek = this.props.student.relevant.filter(each => {
-      return each.dueDate.weekday === parseInt(e.target.id);
+      return each.dueDate.weekday === parseInt(e.target.id, 10);
     });
     console.log(dayofweek);
     return dayofweek;
@@ -46,55 +46,54 @@ export class StudentDashboard extends React.Component {
           <nav>
             <ul className="nav-links">
               <li>
-                <a
+                <button
                   className="nav-link"
+                  type="button"
                   id="2"
-                  href="#"
                   onClick={this.clickDayLink}
                 >
                   Mon
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
                   className="nav-link"
+                  type="button"
                   id="3"
-                  href="#"
                   onClick={this.clickDayLink}
                 >
                   Tue
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
                   className="nav-link"
+                  type="button"
                   id="4"
-                  href="#"
                   onClick={this.clickDayLink}
                 >
                   Wed
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
                   className="nav-link"
+                  type="button"
                   id="5"
-                  href="#"
                   onClick={this.clickDayLink}
                 >
                   Thur
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
                   className="nav-link"
-                  href="#"
+                  type="button"
                   id="6"
-                  href="#"
                   onClick={this.clickDayLink}
                 >
                   Fri
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
