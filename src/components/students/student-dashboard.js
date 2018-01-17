@@ -23,7 +23,7 @@ export class StudentDashboard extends React.Component {
           <li>{student.className}</li>
           <li>{student.subject}</li>
           <li>{student.title}</li>
-          <li>{student.dueDate}</li>
+          <li>{student.dueDate.date}</li>
           <li>{student.goals}</li>
           <li>{student.points}</li>
           <li>{student.teacher}</li>
