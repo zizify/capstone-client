@@ -35,36 +35,36 @@ export class StudentDashboard extends React.Component {
       <div className="student-dashboard">
         <h1 className="student-greeting"> Hello, {this.props.name} </h1>
         <div className="navigation">
-        <nav>
-          <ul className="nav-links">
-            <li>
-              <a className="nav-link" href="/">
-                Mon
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="/">
-                Tue
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="/">
-               Wed
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="/">
-               Thur
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="/">
-               Fri
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          <nav>
+            <ul className="nav-links">
+              <li>
+                <a className="nav-link" href="/">
+                  Mon
+                </a>
+              </li>
+              <li>
+                <a className="nav-link" href="/">
+                  Tue
+                </a>
+              </li>
+              <li>
+                <a className="nav-link" href="/">
+                  Wed
+                </a>
+              </li>
+              <li>
+                <a className="nav-link" href="/">
+                  Thur
+                </a>
+              </li>
+              <li>
+                <a className="nav-link" href="/">
+                  Fri
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
         <ul>{studentData}</ul>
       </div>
     );
