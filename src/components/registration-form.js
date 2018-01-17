@@ -4,11 +4,10 @@ import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
-
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
-        const {username, password, firstName, lastName} = values;
-        const user = {username, password, firstName, lastName};
+        const {username, password, firstName, lastName, isTeacher} = values;
+        const user = {username, password, firstName, lastName, isTeacher};
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
@@ -46,6 +45,15 @@ export class RegistrationForm extends React.Component {
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
                 />
+                <label htmlFor="isTeacher">Are you a Teacher?</label>
+                <div>
+                  <Field
+                  id="isTeacher"
+                  component= "input"
+                  type="checkbox"
+                  name="isTeacher"
+                  />
+                </div>
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
