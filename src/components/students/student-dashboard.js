@@ -11,9 +11,13 @@ export class StudentDashboard extends React.Component {
     this.props.dispatch(fetchStudentData());
   }
 
-  clickDayLink = (e) => {
-    console.log('ClickDayLink', e.target.id)
-  }
+  clickDayLink = e => {
+    const dayofweek = this.props.student.relevant.filter(each => {
+      return each.dueDate.weekday === parseInt(e.target.id);
+    });
+    console.log(dayofweek);
+    return dayofweek;
+  };
 
   render() {
     if (!this.props.student) {
@@ -42,27 +46,53 @@ export class StudentDashboard extends React.Component {
           <nav>
             <ul className="nav-links">
               <li>
-                <a className="nav-link" id="1"  href="#" onClick={this.clickDayLink}>
+                <a
+                  className="nav-link"
+                  id="2"
+                  href="#"
+                  onClick={this.clickDayLink}
+                >
                   Mon
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="/">
+                <a
+                  className="nav-link"
+                  id="3"
+                  href="#"
+                  onClick={this.clickDayLink}
+                >
                   Tue
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="/">
+                <a
+                  className="nav-link"
+                  id="4"
+                  href="#"
+                  onClick={this.clickDayLink}
+                >
                   Wed
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="/">
+                <a
+                  className="nav-link"
+                  id="5"
+                  href="#"
+                  onClick={this.clickDayLink}
+                >
                   Thur
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="/">
+                <a
+                  className="nav-link"
+                  href="#"
+                  id="6"
+                  href="#"
+                  onClick={this.clickDayLink}
+                >
                   Fri
                 </a>
               </li>
