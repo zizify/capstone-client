@@ -11,6 +11,10 @@ export class StudentDashboard extends React.Component {
     this.props.dispatch(fetchStudentData());
   }
 
+  clickDayLink = (e) => {
+    console.log('ClickDayLink', e.target.id)
+  }
+
   render() {
     if (!this.props.student) {
       console.log('InLoadingMode Student', this.props.student);
@@ -38,7 +42,7 @@ export class StudentDashboard extends React.Component {
           <nav>
             <ul className="nav-links">
               <li>
-                <a className="nav-link" href="/">
+                <a className="nav-link" id="1"  href="#" onClick={this.clickDayLink}>
                   Mon
                 </a>
               </li>
