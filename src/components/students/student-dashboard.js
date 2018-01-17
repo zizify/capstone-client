@@ -6,39 +6,61 @@ import { fetchStudentData } from '../../actions/students';
 import './student-dashboard.css';
 
 export class StudentDashboard extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      day: 0,
+      all: true
+    };
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchStudentData());
   }
 
   clickDayLink = e => {
-    const dayofweek = this.props.student.relevant.filter(each => {
-      return each.dueDate.weekday === parseInt(e.target.id, 10);
+    this.setState({ 
+      day: parseInt(e.target.id, 10),
+      all: false
     });
-    console.log(dayofweek);
-    return dayofweek;
+  };
+
+  clickAllLink = e => {
+    this.setState({ 
+      day: parseInt(e.target.id, 10),
+      all: true
+    });
   };
 
   render() {
     if (!this.props.student) {
-      console.log('InLoadingMode Student', this.props.student);
       return <h1>Loading....</h1>;
     }
 
-    const studentData = this.props.student.relevant.map((student, index) => {
-      return (
-        <div className="container" key={index}>
-          <li>{student.className}</li>
-          <li>{student.subject}</li>
-          <li>{student.title}</li>
-          <li>{student.dueDate.date}</li>
-          <li>{student.goals}</li>
-          <li>{student.points}</li>
-          <li>{student.teacher}</li>
-          <li>{student.instructions}</li>
-        </div>
-      );
-    });
+    const studentData = () => {
+      let assignments = this.props.student.relevant;
+      if(!this.state.all) {
+        assignments = this.props.student.relevant.filter(each => {
+          return each.dueDate.weekday === this.state.day;
+        });
+      }
+      return assignments.map((student, index) => {
+        return (
+          <div className="container" key={index}>
+            <li>{student.className}</li>
+            <li>{student.subject}</li>
+            <li>{student.title}</li>
+            <li>{student.dueDate.date}</li>
+            <li>{student.goals}</li>
+            <li>{student.points}</li>
+            <li>{student.teacher}</li>
+            <li>{student.instructions}</li>
+          </div>
+        );
+      });
+    };
+
     return (
       <div className="student-dashboard">
         <h1 className="student-greeting"> Hello, {this.props.name} </h1>
@@ -89,29 +111,40 @@ export class StudentDashboard extends React.Component {
                 <button
                   className="nav-link"
                   type="button"
-                  id="5"
+                  id="6"
                   onClick={this.clickDayLink}
                 >
-                  Fri 
+                  Fri
+                </button>
+              </li>
+              <li>
+                <button
+                  className="nav-link"
+                  type="button"
+                  id="7"
+                  onClick={this.clickAllLink}
+                >
+                  All
                 </button>
               </li>
             </ul>
           </nav>
         </div>
-        <ul>{studentData}</ul>
+        <ul>{studentData()}</ul>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log('MapPropsToStateSTUDENT', state.students.data.student);
+  //console.log('MapPropsToStateSTUDENT', state.students);
   const { currentUser } = state.auth;
   return {
     student: state.students.data.student,
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data
+    protectedData: state.protectedData.data,
+    loading: state.students.loading
   };
 };
 
