@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default class Input extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.meta.active && this.props.meta.active) {

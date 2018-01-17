@@ -6,13 +6,16 @@ import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
-        const {username, password, firstName, lastName, isTeacher} = values;
+        let {username, password, firstName, lastName, isTeacher} = values;
+        if (isTeacher === undefined) {
+          isTeacher = false;
+        }
         const user = {username, password, firstName, lastName, isTeacher};
+        
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
     }
-
     render() {
         return (
             <form
@@ -36,7 +39,7 @@ export class RegistrationForm extends React.Component {
                     component={Input}
                     type="password"
                     name="password"
-                    validate={[required, length({min: 10, max: 72}), isTrimmed]}
+                    validate={[required, length({min:3, max: 72}), isTrimmed]}
                 />
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
@@ -46,14 +49,11 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, matches('password')]}
                 />
                 <label htmlFor="isTeacher">Are you a Teacher?</label>
-                <div>
                   <Field
-                  id="isTeacher"
-                  component= "input"
+                  component= {Input}
                   type="checkbox"
                   name="isTeacher"
                   />
-                </div>
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
