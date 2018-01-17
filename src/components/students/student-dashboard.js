@@ -89,10 +89,10 @@ export class StudentDashboard extends React.Component {
                 <button
                   className="nav-link"
                   type="button"
-                  id="6"
+                  id="5"
                   onClick={this.clickDayLink}
                 >
-                  Fri
+                  Fri 
                 </button>
               </li>
             </ul>
