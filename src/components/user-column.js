@@ -10,6 +10,19 @@ export class UserColumn extends React.Component {
     this.props.dispatch(fetchStudentData());
   }
 
+  newButtonClick = e => {
+    console.log('new button clicked');
+  }
+
+  upcomingButtonClick = e => {
+    console.log('upcoming clicked');
+  }
+
+  gradesButtonClick = e => {
+    console.log('grades button clicked');
+  }
+
+
     render() {
       if (!this.props.student) {
         return <h1>Loading....</h1>;
@@ -19,9 +32,15 @@ export class UserColumn extends React.Component {
         <h1>User Column</h1>
         <img src="https://assets-jpcust.jwpsrv.com/thumbs/3Gz5D0sR-720.jpg"></img>
         <h2>{`Hello ${this.props.username}`}</h2>
-        <button>New</button>
-        <button>Upcoming</button>
-        <button>Grades</button>
+        <button
+          onClick={this.newButtonClick}
+        >New</button>
+        <button
+          onClick={this.upcomingButtonClick}
+        >Upcoming</button>
+        <button
+          onClick={this.gradesButtonClick}
+        >Grades</button>
         </div>
         )
       }

@@ -4,22 +4,23 @@ import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 
 import StudentDashboard from './students/student-dashboard';
-import UserColumn  from './user-column';
+
 
 export class Dashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
   }
 
+    newButtonClick = e => {
+    }
   render() {
     if (!this.props) {
       console.log('InLoadingMode Dashboard', this.props)
       return <h1>Loading....</h1>;
     }
-    
     return (
       <div className="dashboard">
-      <UserColumn />
+      
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>

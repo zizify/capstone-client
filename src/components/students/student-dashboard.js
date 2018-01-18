@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProtectedData } from '../../actions/protected-data';
 import { fetchStudentData } from '../../actions/students';
+import UserColumn  from '../user-column';
 
 import './student-dashboard.css';
 
@@ -64,7 +65,7 @@ export class StudentDashboard extends React.Component {
 
     return (
       <div className="student-dashboard">
-        <h1 className="student-greeting"> Hello, {this.props.name} </h1>
+        <UserColumn />
         <div className="navigation">
           <nav>
             <ul className="nav-links">
