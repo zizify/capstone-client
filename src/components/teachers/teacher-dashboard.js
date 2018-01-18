@@ -1,21 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import requiresLogin from './requires-login';
-import { fetchProtectedData } from '../actions/protected-data';
+import requiresLogin from '../requires-login';
+import { fetchProtectedData } from '../../actions/protected-data';
 
-import StudentDashboard from './students/student-dashboard';
-
-export class Dashboard extends React.Component {
+export class TeacherDashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
   }
 
   render() {
-    if (!this.props) {
-      console.log('InLoadingMode Dashboard', this.props)
-      return <h1>Loading....</h1>;
-    }
-    
     return (
       <div className="dashboard">
         <div className="dashboard-username">
@@ -25,7 +18,7 @@ export class Dashboard extends React.Component {
         <div className="dashboard-protected-data">
           Protected data: {this.props.protectedData}
         </div>
-        <StudentDashboard />
+        Hello Teacher!
       </div>
     );
   }
@@ -40,4 +33,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(connect(mapStateToProps)(TeacherDashboard));
