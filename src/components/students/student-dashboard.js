@@ -47,6 +47,7 @@ export class StudentDashboard extends React.Component {
       }
       return assignments.map((student, index) => {
         return (
+          
           <div className="container" key={index}>
             <li>{student.className}</li>
             <li>{student.subject}</li>

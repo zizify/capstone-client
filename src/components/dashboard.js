@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 
 import StudentDashboard from './students/student-dashboard';
+import UserColumn  from './user-column';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ export class Dashboard extends React.Component {
     
     return (
       <div className="dashboard">
+      <UserColumn />
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>
