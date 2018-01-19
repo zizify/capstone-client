@@ -14,11 +14,8 @@ export class TeacherDashboard extends React.Component {
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>
-        <div className="dashboard-name">Name: {this.props.name}</div>
-        <div className="dashboard-protected-data">
-          Protected data: {this.props.protectedData}
-        </div>
-        Hello Teacher!
+        <h1 className="teacher-greeting"> Hello, {this.props.name} </h1>
+        <h3 className="teacher-assignments">You may create assignments for your class here</h3>
       </div>
     );
   }
