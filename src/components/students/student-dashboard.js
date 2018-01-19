@@ -38,13 +38,6 @@ export class StudentDashboard extends React.Component {
     });
   };
 
-  getStateNew2 = e => {
-    this.setState({
-      new2: true,
-      reset: false
-    })
-  }
-
   render() {
     if (!this.props.student) {
       return <h1>Loading....</h1>;
@@ -52,11 +45,35 @@ export class StudentDashboard extends React.Component {
 
     const studentData = () => {
       let assignments = this.props.student.relevant;
+      assignments  = assignments.sort((a, b) => {
+        return b.assignDate.date > a.assignDate.date
+      });
+      
+
+      if(!this.state.all && this.state.upcoming) {
+        console.log('all and upcoming')
+        assignments = assignments.sort((a, b) => {
+          console.log('i am getting to sorting')
+          return a.assignDate.date < b.assignDate.date
+        });
+        assignments = this.props.student.relevant.filter(each => {
+          return each.dueDate.weekday === this.state.day;
+        });
+      }
+
+      if(this.state.upcoming && this.state.all) {
+        assignments = assignments.sort((a, b) => {
+          return a.assignDate.date > b.assignDate.date
+        })
+      }
+
       if(!this.state.all) {
         assignments = this.props.student.relevant.filter(each => {
           return each.dueDate.weekday === this.state.day;
         });
       }
+
+      console.log(assignments, 'not sort assignments')
       return assignments.map((student, index) => {
         return (
           <div className="container" key={index}>
@@ -84,30 +101,30 @@ export class StudentDashboard extends React.Component {
           })
         }
         }
-        updateUpcomingParentState={(values) => {this.setState({
-            new: false,          
-            upcoming: true,
-            grades: false,
+          updateUpcomingParentState={(values) => {this.setState({
+              new: false,          
+              upcoming: true,
+              grades: false,
+              reset: false
+            })
+          }
+        }
+          updateGradesParentState={(values) => {this.setState({
+            new: false,
+            upcoming: false,
+            grades: true,
             reset: false
           })
         }
       }
-      updateGradesParentState={(values) => {this.setState({
-        new: false,
-        upcoming: false,
-        grades: true,
-        reset: false
-      })
-    }
-  }
-      updateResetParentState={(values) => {this.setState({
-        new: false,
-        upcoming:false,
-        grades: false,
-        reset: true
-      })
-    }
-  }
+          updateResetParentState={(values) => {this.setState({
+            new: false,
+            upcoming:false,
+            grades: false,
+            reset: true
+          })
+        }
+      }
         />
         <div className="navigation">
           <nav>
