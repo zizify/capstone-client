@@ -15,8 +15,11 @@ export function LandingPage(props) {
 
   return (
     <div className="home">
-      <h2>Welcome to ChalkTalk App</h2>
-      <LoginForm />
+      <h5>Organizer + Planner + Report Card</h5>
+      <h6>Paperless</h6>
+      {/* <LoginForm /> */}
+      <Link to="/login">Login</Link>
+      <h6>or</h6>
       <Link to="/register">Register</Link>
     </div>
   );
