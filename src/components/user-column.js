@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 import { fetchStudentData } from '../actions/students';
-import moment from 'moment';
+//import moment from 'moment';
 
 export class UserColumn extends React.Component {
   constructor(props){
