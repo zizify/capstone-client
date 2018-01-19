@@ -51,10 +51,8 @@ export class StudentDashboard extends React.Component {
       
 
       if(!this.state.all && this.state.upcoming) {
-        console.log('all and upcoming')
         assignments = assignments.sort((a, b) => {
-          console.log('i am getting to sorting')
-          return a.assignDate.date < b.assignDate.date
+          return a.dueDate.date < b.dueDate.date
         });
         assignments = this.props.student.relevant.filter(each => {
           return each.dueDate.weekday === this.state.day;
@@ -63,7 +61,7 @@ export class StudentDashboard extends React.Component {
 
       if(this.state.upcoming && this.state.all) {
         assignments = assignments.sort((a, b) => {
-          return a.assignDate.date > b.assignDate.date
+          return a.dueDate.date > b.dueDate.date
         })
       }
 
