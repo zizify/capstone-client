@@ -78,17 +78,23 @@ export class StudentDashboard extends React.Component {
         <UserColumn 
           updateNewParentState={(values) => {this.setState({
             new: true,
+            upcoming: false,
+            grades: false,
             reset: false
           })
         }
         }
         updateUpcomingParentState={(values) => {this.setState({
+            new: false,          
             upcoming: true,
+            grades: false,
             reset: false
           })
         }
       }
       updateGradesParentState={(values) => {this.setState({
+        new: false,
+        upcoming: false,
         grades: true,
         reset: false
       })

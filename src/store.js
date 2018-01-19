@@ -14,6 +14,8 @@ const store = createStore(
         protectedData: protectedDataReducer,
         students: studentDataReducer 
     }),
+     /* preloadedState, */
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     applyMiddleware(thunk)
 );
 

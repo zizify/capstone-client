@@ -24,7 +24,7 @@ export class UserColumn extends React.Component {
   }
 
   gradesButtonClick = e => {
-      this.props.updateUpcomingParentState()
+      this.props.updateGradesParentState()
   }
 
   resetButtonClick = e => {
