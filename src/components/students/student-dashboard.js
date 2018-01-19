@@ -11,7 +11,11 @@ export class StudentDashboard extends React.Component {
     super();
     this.state = {
       day: 0,
-      all: true
+      all: true,
+      new: false,
+      upcoming: false,
+      grades: false,
+      reset: true
     };
   }
 
@@ -34,6 +38,13 @@ export class StudentDashboard extends React.Component {
     });
   };
 
+  getStateNew2 = e => {
+    this.setState({
+      new2: true,
+      reset: false
+    })
+  }
+
   render() {
     if (!this.props.student) {
       return <h1>Loading....</h1>;
@@ -48,7 +59,6 @@ export class StudentDashboard extends React.Component {
       }
       return assignments.map((student, index) => {
         return (
-          
           <div className="container" key={index}>
             <li>{student.className}</li>
             <li>{student.subject}</li>
@@ -65,7 +75,34 @@ export class StudentDashboard extends React.Component {
 
     return (
       <div className="student-dashboard">
-        <UserColumn />
+        <UserColumn 
+          updateNewParentState={(values) => {this.setState({
+            new: true,
+            reset: false
+          })
+        }
+        }
+        updateUpcomingParentState={(values) => {this.setState({
+            upcoming: true,
+            reset: false
+          })
+        }
+      }
+      updateGradesParentState={(values) => {this.setState({
+        grades: true,
+        reset: false
+      })
+    }
+  }
+      updateResetParentState={(values) => {this.setState({
+        new: false,
+        upcoming:false,
+        grades: false,
+        reset: true
+      })
+    }
+  }
+        />
         <div className="navigation">
           <nav>
             <ul className="nav-links">

@@ -2,8 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 import { fetchStudentData } from '../actions/students';
+import moment from 'moment';
 
 export class UserColumn extends React.Component {
+  constructor(props){
+    super(props);
+    
+  }
   
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
@@ -11,18 +16,20 @@ export class UserColumn extends React.Component {
   }
 
   newButtonClick = e => {
-    console.log('new button clicked');
+      this.props.updateNewParentState()
   }
 
   upcomingButtonClick = e => {
-    console.log('upcoming clicked');
+    this.props.updateUpcomingParentState()
   }
 
   gradesButtonClick = e => {
-    console.log('grades button clicked');
+      this.props.updateUpcomingParentState()
   }
 
-
+  resetButtonClick = e => {
+    this.props.updateResetParentState()
+  }
     render() {
       if (!this.props.student) {
         return <h1>Loading....</h1>;
@@ -41,6 +48,9 @@ export class UserColumn extends React.Component {
         <button
           onClick={this.gradesButtonClick}
         >Grades</button>
+         <button
+          onClick={this.resetButtonClick}
+        >Reset</button>
         </div>
         )
       }
