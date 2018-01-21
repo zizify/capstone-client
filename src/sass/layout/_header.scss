@@ -1,0 +1,91 @@
+.header {
+  max-width: 140rem;
+  margin: 0 auto;
+
+  &__hero {
+    margin: 0 auto;
+    margin-top: 8rem;
+    max-width: 74rem;
+    align-items: center;
+  }
+
+  &__sub-heading {
+    margin: 2.5rem 0;
+    font-size: 1.4rem;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    color: lightgrey;
+
+  }
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  &__name {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__password {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__isTeacher {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+  }
+}
+
+#firstName,
+#lastName,
+#username,
+#password,
+#passwordConfirm {
+  padding: 2.8rem;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 2.5rem;
+}
+
+.form-input:not(:last-child) {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+#username {
+  width: 98%;
+}
+
+#firstName,
+#lastName {
+  justify-content: space-between;
+  flex: 0 0 95%;
+}
+
+#password,
+#passwordConfirm {
+  width: 95% !important;
+}
+

@@ -22,38 +22,53 @@ export class RegistrationForm extends React.Component {
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
-                )}>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
-                <label htmlFor="username">Username</label>
+                )}> <div className="login-form__name">
+                        <Field  
+                        component={Input} 
+                        type="text" 
+                        name="firstName" 
+                        placeholder="First Name" 
+                        />
+                  <Field 
+                  component={Input} 
+                  type="text" 
+                  name="lastName"
+                  placeholder="Last Name"
+                  />
+                
+                </div>
                 <Field
                     component={Input}
                     type="text"
                     name="username"
                     validate={[required, nonEmpty, isTrimmed]}
+                    placeholder="Username"
                 />
-                <label htmlFor="password">Password</label>
+                <div className="login-form__password">
                 <Field
                     component={Input}
                     type="password"
                     name="password"
                     validate={[required, length({min:3, max: 72}), isTrimmed]}
+                    placeholder="Enter Password"
                 />
-                <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
+                    placeholder="Confirm Password"
                 />
+                </div>
+                <div className="login-form__isTeacher">
                 <label htmlFor="isTeacher">Are you a Teacher?</label>
                   <Field
                   component= {Input}
                   type="checkbox"
                   name="isTeacher"
+                  className="css-checkbox"
                   />
+                  </div>
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>

@@ -1,0 +1,27 @@
+.navigation {
+  &__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 2rem;
+    font-size: 3.5rem;
+  }
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  &__item {
+    margin-left: 1rem;
+  }
+
+  &__item a,
+  &__item a:visited,
+  &__item a:link {
+    color: white;
+    text-decoration: none;
+
+  }
+}

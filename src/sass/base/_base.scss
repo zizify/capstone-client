@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //This font-size is to define what one rem would is equal to here 1 rem is equal to 10px;
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%;
+  //Default browser font size is 16px so by setting it to 62.5% it allows for responsive text sizing while using rems in an easy to parse calculation
+  //To make something 18 pixes it would be 1.8rem
+}
+
+body {
+  box-sizing: border-box;
+}
+
