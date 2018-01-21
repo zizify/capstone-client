@@ -66,10 +66,10 @@ export class RegistrationForm extends React.Component {
                   component= {Input}
                   type="checkbox"
                   name="isTeacher"
-                  className="css-checkbox"
                   />
                   </div>
                 <button
+                    className="login-form__button"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
