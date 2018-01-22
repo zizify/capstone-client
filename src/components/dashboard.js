@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
-
+import HeaderNav from './header-nav';
 import StudentDashboard from './students/student-dashboard';
 
 
@@ -20,7 +20,7 @@ export class Dashboard extends React.Component {
     }
     return (
       <div className="dashboard">
-      
+      <HeaderNav />
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>
