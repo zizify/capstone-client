@@ -97,6 +97,7 @@ export class StudentDashboard extends React.Component {
     
     return (
       <div className="student-dashboard">
+       <h2>{`Hello ${this.props.username}`}</h2>
         <UserColumn 
           updateNewParentState={(values) => {this.setState({
             new: true,
