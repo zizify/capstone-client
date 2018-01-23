@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchProtectedData } from '../../actions/protected-data';
 import { fetchStudentData } from '../../actions/students';
 import UserColumn  from '../user-column';
+import UserGrades from '../user-grades'
 
 import './student-dashboard.css';
 
@@ -43,7 +44,14 @@ export class StudentDashboard extends React.Component {
       return <h1>Loading....</h1>;
     }
 
+    const renderUserClasses = () => {
+      if (this.state.grades) {
+        return <UserGrades />
+      }
+
+    }
     const studentData = () => {
+      console.log(this.props.student, 'grades')
       let assignments = this.props.student.relevant;
       assignments  = assignments.sort((a, b) => {
         return b.assignDate.date > a.assignDate.date
@@ -71,7 +79,6 @@ export class StudentDashboard extends React.Component {
         });
       }
 
-      console.log(assignments, 'not sort assignments')
       return assignments.map((student, index) => {
         return (
           <div className="container" key={index}>
@@ -87,7 +94,7 @@ export class StudentDashboard extends React.Component {
         );
       });
     };
-
+    
     return (
       <div className="student-dashboard">
         <UserColumn 
@@ -189,6 +196,7 @@ export class StudentDashboard extends React.Component {
               </li>
             </ul>
           </nav>
+          {renderUserClasses()}
         </div>
         <ul>{studentData()}</ul>
       </div>

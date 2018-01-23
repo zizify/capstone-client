@@ -35,9 +35,9 @@ export class UserColumn extends React.Component {
         return <h1>Loading....</h1>;
       }
         return (
-      <div>
+      <div className="user-column">
         <h1>User Column</h1>
-        <img src="https://assets-jpcust.jwpsrv.com/thumbs/3Gz5D0sR-720.jpg"></img>
+        <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
         <h2>{`Hello ${this.props.username}`}</h2>
         <button
           onClick={this.newButtonClick}

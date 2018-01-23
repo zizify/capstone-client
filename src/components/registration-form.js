@@ -3,6 +3,8 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
+import {connect} from 'react-redux';
+
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
@@ -11,7 +13,6 @@ export class RegistrationForm extends React.Component {
           isTeacher = false;
         }
         const user = {username, password, firstName, lastName, isTeacher};
-        
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
@@ -22,39 +23,54 @@ export class RegistrationForm extends React.Component {
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
-                )}>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
-                <label htmlFor="username">Username</label>
+                )}> <div className="login-form__name">
+                        <Field  
+                        component={Input} 
+                        type="text" 
+                        name="firstName" 
+                        placeholder="First Name" 
+                        />
+                  <Field 
+                  component={Input} 
+                  type="text" 
+                  name="lastName"
+                  placeholder="Last Name"
+                  />
+                
+                </div>
                 <Field
                     component={Input}
                     type="text"
                     name="username"
                     validate={[required, nonEmpty, isTrimmed]}
+                    placeholder="Username"
                 />
-                <label htmlFor="password">Password</label>
+                <div className="login-form__password">
                 <Field
                     component={Input}
                     type="password"
                     name="password"
                     validate={[required, length({min:3, max: 72}), isTrimmed]}
+                    placeholder="Enter Password"
                 />
-                <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
+                    placeholder="Confirm Password"
                 />
+                </div>
+                <div className="login-form__isTeacher">
                 <label htmlFor="isTeacher">Are you a Teacher?</label>
                   <Field
                   component= {Input}
                   type="checkbox"
                   name="isTeacher"
                   />
+                  </div>
                 <button
+                    className="login-form__button"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
@@ -69,3 +85,9 @@ export default reduxForm({
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+// export default connect(mapStateToProps)(RegistrationForm);
