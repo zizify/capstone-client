@@ -1,4 +1,6 @@
 .navigation {
+  max-width: 140rem;
+
   &__list {
     width: 100%;
     display: flex;
@@ -7,6 +9,7 @@
     list-style: none;
     padding: 2rem;
     font-size: 3.5rem;
+    margin: 0 auto;
   }
 
   &__logo {
