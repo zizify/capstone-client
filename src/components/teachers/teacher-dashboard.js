@@ -29,7 +29,7 @@ export class TeacherDashboard extends React.Component {
 
   render() {
 
-    // console.log('TEACHER PROPs', this.props.teacher);
+   // console.log('TEACHER PROPs', this.props.teacher);
     if (!this.props.teacher) {
       return <h1>Loading....</h1>;
     }
