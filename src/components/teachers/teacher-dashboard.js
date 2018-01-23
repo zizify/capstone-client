@@ -4,6 +4,7 @@ import requiresLogin from '../requires-login';
 import { fetchProtectedData } from '../../actions/protected-data';
 import { fetchTeacherData } from '../../actions/teachers';
 import { UserColumn } from '../user-column';
+import HeaderNav from '../header-nav';
 
 export class TeacherDashboard extends React.Component {
   constructor() {
@@ -92,6 +93,14 @@ export class TeacherDashboard extends React.Component {
           }}
         />
         <ul>{teacherData()}</ul>
+    return (  
+      <div className="dashboard">
+            <HeaderNav />
+        <div className="dashboard-username">
+          Username: {this.props.username}
+        </div>
+        <h1 className="teacher-greeting"> Hi, {this.props.name} </h1>
+        <h3 className="teacher-assignments">You may create assignments for your class here</h3>
       </div>
     );
   }

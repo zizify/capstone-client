@@ -7,9 +7,10 @@ import { Link, Redirect } from 'react-router-dom';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
+      console.log(values)
         return this.props.dispatch(login(values.username, values.password));
     }
-
+    
     render() {
         let error;
         if (this.props.error) {
@@ -21,11 +22,12 @@ export class LoginForm extends React.Component {
         }
         return (
             <form
-                className="login-form"
+                id="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
+                <div className="login-username-group">
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
@@ -33,7 +35,10 @@ export class LoginForm extends React.Component {
                     name="username"
                     id="username"
                     validate={[required, nonEmpty]}
+                    placeholder="Username"
                 />
+                </div>
+                <div className="login-password-group">
                 <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
@@ -41,10 +46,14 @@ export class LoginForm extends React.Component {
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}
+                    placeholder="Password"
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button 
+                id="login-form__button"
+                disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                </div>
             </form>
         );
     }
