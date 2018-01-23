@@ -35,9 +35,9 @@ export class UserColumn extends React.Component {
         return <h1>Loading....</h1>;
       }
         return (
-      <div>
+      <div className="user-column">
         <h1>User Column</h1>
-        <img src="https://www.google.com/imgres?imgurl=http%3A%2F%2Fphotos1.blogger.com%2Fblogger%2F7024%2F1859%2F1600%2FPicture%25201.0.jpg&imgrefurl=http%3A%2F%2Fcartoonsolutions.blogspot.com%2F2005%2F11%2Fclassroom-background.html&docid=LAk2MLz45uRBJM&tbnid=ucxksWiYLE6YqM%3A&vet=10ahUKEwiJ_f6Qm-zYAhVPba0KHQRaBh8QMwiuASgBMAE..i&w=610&h=458&bih=769&biw=952&q=cartoon%20classroom&ved=0ahUKEwiJ_f6Qm-zYAhVPba0KHQRaBh8QMwiuASgBMAE&iact=mrc&uact=8"></img>
+        <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
         <h2>{`Hello ${this.props.username}`}</h2>
         <button
           onClick={this.newButtonClick}
