@@ -15,8 +15,15 @@ export class HeaderNav extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <button
+                class="log-out-button"
+                onClick={() => this.logOut()}>Log out</button>
             );
+        }
+        if(!this.props.loggedIn) {
+          logOutButton = (
+            <li className="navigation__item"><Link to="/login">Login</Link></li>
+          )
         }
         return (
             <div className="navigation">
@@ -27,7 +34,6 @@ export class HeaderNav extends React.Component {
                       CHALK TALK
                     </Link>
                 </li>
-                <li className="navigation__item"><Link to="/login">Login</Link></li>
                 {logOutButton}
               </ul>
             </div>
