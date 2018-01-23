@@ -3,23 +3,24 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import LoginForm from './login-form';
+import Header from './header';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn && props.isTeacher) {
     return <Redirect to="/dashboard/teacher" />;
   }
-  if (props.loggedIn) {
+  if (props.loggedIn && !props.isTeacher) {
     return <Redirect to="/dashboard" />;
   }
-
   return (
-    <div className="home">
-      <h5>Organizer + Planner + Report Card</h5>
+    <div className="container">
+      <Header />
+      {/* <Content /> */}
+      {/* <Footer /> */}
+      {/* <h5>Organizer + Planner + Report Card</h5>
       <h6>Paperless</h6>
-      <h6>LogIn Here</h6>
-      <LoginForm />
-      <Link to="/register">Register</Link>
+      <h6>LogIn Here</h6> */}
     </div>
   );
 }
