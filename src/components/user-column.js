@@ -60,11 +60,13 @@ export class UserColumn extends React.Component {
         )
       } else {
         return ( 
+        <div>
           <div>
             <button onClick={this.assignmentsButtonClick}>TeacherAssignments</button>
             <button onClick={this.teacherGradesButtonClick}>TeacherGrades</button>
             <button onClick={this.studentsButtonClick}>TeacherStudents</button>
           </div>
+
       <div className="user-column">
         <h1>User Column</h1>
         <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
@@ -82,6 +84,7 @@ export class UserColumn extends React.Component {
           onClick={this.resetButtonClick}
         >Reset</button>
         </div>
+      </div>
         )
       }
     }
@@ -92,6 +95,7 @@ export class UserColumn extends React.Component {
         <h2>{`Hello ${this.props.name}`}</h2>
         {renderButtons()}
       </div>
+     
     );
   }
 }

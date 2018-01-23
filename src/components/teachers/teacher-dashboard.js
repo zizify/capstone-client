@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from '../requires-login';
 import { fetchProtectedData } from '../../actions/protected-data';
+
 import { fetchTeacherData } from '../../actions/teachers';
 import { UserColumn } from '../user-column';
+
 import HeaderNav from '../header-nav';
+
 
 export class TeacherDashboard extends React.Component {
   constructor() {
@@ -25,7 +28,8 @@ export class TeacherDashboard extends React.Component {
   }
 
   render() {
-    // console.log('TEACHER PROPs', this.props.teacher);
+
+   // console.log('TEACHER PROPs', this.props.teacher);
     if (!this.props.teacher) {
       return <h1>Loading....</h1>;
     }
@@ -93,8 +97,7 @@ export class TeacherDashboard extends React.Component {
           }}
         />
         <ul>{teacherData()}</ul>
-    return (  
-      <div className="dashboard">
+        <div className="dashboard">
             <HeaderNav />
         <div className="dashboard-username">
           Username: {this.props.username}
@@ -102,7 +105,8 @@ export class TeacherDashboard extends React.Component {
         <h1 className="teacher-greeting"> Hi, {this.props.name} </h1>
         <h3 className="teacher-assignments">You may create assignments for your class here</h3>
       </div>
-    );
+</div>
+    )
   }
 }
 
