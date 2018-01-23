@@ -10,7 +10,7 @@ export function LandingPage(props) {
   if (props.loggedIn && props.isTeacher) {
     return <Redirect to="/dashboard/teacher" />;
   }
-  if (props.loggedIn) {
+  if (props.loggedIn && !props.isTeacher) {
     return <Redirect to="/dashboard" />;
   }
   return (

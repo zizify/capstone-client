@@ -18,6 +18,7 @@ export class Dashboard extends React.Component {
       console.log('InLoadingMode Dashboard', this.props)
       return <h1>Loading....</h1>;
     }
+
     return (
       <div className="dashboard">
         <HeaderNav />
