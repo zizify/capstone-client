@@ -90,12 +90,8 @@ export class UserColumn extends React.Component {
     }
     return (
       <div>
-        <h1>User Column</h1>
-        <img src="https://assets-jpcust.jwpsrv.com/thumbs/3Gz5D0sR-720.jpg" />
-        <h2>{`Hello ${this.props.name}`}</h2>
         {renderButtons()}
-      </div>
-     
+        </div>
     );
   }
 }
