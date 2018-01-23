@@ -1,6 +1,9 @@
-.navigation {
+.main-navigation {
   max-width: 140rem;
+  margin: 0 auto;
+}
 
+.navigation {
   &__list {
     width: 100%;
     display: flex;
