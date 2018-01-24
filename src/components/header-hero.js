@@ -5,19 +5,8 @@ import {clearAuthToken} from '../local-storage';
 import RegistrationForm from './registration-form';
 
 export class HeaderHero extends React.Component {
-    logOut() {
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-
     render() {
         // Only render the log out button if we are logged in
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-        }
         return (
             <div className="header__hero">
               <div className="header__form-text-container">

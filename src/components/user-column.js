@@ -71,28 +71,12 @@ export class UserColumn extends React.Component {
         <h1>User Column</h1>
         <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
         <h2>{`Hello ${this.props.username}`}</h2>
-        <button
-          onClick={this.newButtonClick}
-        >New</button>
-        <button
-          onClick={this.upcomingButtonClick}
-        >Upcoming</button>
-        <button
-          onClick={this.gradesButtonClick}
-        >Grades</button>
-         <button
-          onClick={this.resetButtonClick}
-        >Reset</button>
+        {renderButtons()}
         </div>
       </div>
         )
       }
     }
-    return (
-      <div>
-        {renderButtons()}
-        </div>
-    );
   }
 }
 const mapStateToProps = state => {
