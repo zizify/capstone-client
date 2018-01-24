@@ -15,33 +15,42 @@ export class UserColumn extends React.Component {
     // this.props.dispatch(fetchTeacherData());
   }
 
+  // Student Views
   newButtonClick = e => {
+    console.log('NewClicked', e)
     this.props.updateView('new')
   };
 
   upcomingButtonClick = e => {
-    this.props.updateUpcomingParentState();
+    console.log('Upcoming', e)
+    this.props.updateView('upcoming')
   };
 
-  gradesButtonClick = e => {
-    this.props.updateGradesParentState();
+  studentGradesButtonClick = e => {
+    console.log('Grades', e)
+    this.props.updateView('student-grades')
   };
 
-  resetButtonClick = e => {
-    this.props.updateResetParentState();
-  };
-
+  // Teacher Views
   assignmentsButtonClick = e => {
-    this.props.updateAssignmentsParentState();
+    this.props.updateView('assignments')
+  };
+
+  classFormButtonClick = e => {
+    this.props.updateView('classform')
+  };
+
+  assignmentsFormButtonClick = e => {
+    this.props.updateView('assignmentform')
   };
 
   teacherGradesButtonClick = e => {
-    this.props.updateTeacherGradesParentState()
-  }
+    this.props.updateView('teacher-grades')
+  };
 
   studentsButtonClick = e => {
-    this.props.updateStudentsParentState()
-}
+    this.props.updateView('students')
+  };
 
   render() {
     if (!this.props) {
@@ -49,13 +58,13 @@ export class UserColumn extends React.Component {
     }
 
     const renderButtons = () => {
+      console.log('THIS.PROPS', this.props)
       if(this.props.student) {
         return (
           <div>
             <button onClick={this.newButtonClick}>New</button>
             <button onClick={this.upcomingButtonClick}>Upcoming</button>
-            <button onClick={this.gradesButtonClick}>Grades</button>
-            <button onClick={this.resetButtonClick}>Reset</button>
+            <button onClick={this.studentGradesButtonClick}>Grades</button>
           </div>
         )
       } else {
@@ -78,11 +87,8 @@ export class UserColumn extends React.Component {
           onClick={this.upcomingButtonClick}
         >Upcoming</button>
         <button
-          onClick={this.gradesButtonClick}
+          onClick={this.studentGradesButtonClick}
         >Grades</button>
-         <button
-          onClick={this.resetButtonClick}
-        >Reset</button>
         </div>
       </div>
         )
