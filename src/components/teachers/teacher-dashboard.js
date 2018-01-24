@@ -23,8 +23,8 @@ export class TeacherDashboard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(fetchTeacherData());
+    // this.props.dispatch(fetchProtectedData());
+    // this.props.dispatch(fetchTeacherData());
   }
 
   render() {

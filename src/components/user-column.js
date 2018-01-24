@@ -10,13 +10,13 @@ export class UserColumn extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(fetchStudentData());
-    this.props.dispatch(fetchTeacherData());
+    // this.props.dispatch(fetchProtectedData());
+    // this.props.dispatch(fetchStudentData());
+    // this.props.dispatch(fetchTeacherData());
   }
 
   newButtonClick = e => {
-    this.props.updateNewParentState();
+    this.props.updateView('new')
   };
 
   upcomingButtonClick = e => {
