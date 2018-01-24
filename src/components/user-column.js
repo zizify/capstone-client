@@ -15,11 +15,11 @@ export class UserColumn extends React.Component {
     // this.props.dispatch(fetchTeacherData());
   }
 
+
+  buttonClick = e => {
+    this.props.updateView(e.target.value)
+  }
   // Student Views
-  newButtonClick = e => {
-    console.log('NewClicked', e)
-    this.props.updateView('new')
-  };
 
   upcomingButtonClick = e => {
     console.log('Upcoming', e)
@@ -80,13 +80,16 @@ export class UserColumn extends React.Component {
         <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
         <h2>{`Hello ${this.props.username}`}</h2>
         <button
-          onClick={this.newButtonClick}
+         value="new"
+          onClick={this.buttonClick}
         >New</button>
         <button
-          onClick={this.upcomingButtonClick}
+          value="upcoming"
+          onClick={this.buttonClick}
         >Upcoming</button>
         <button
-          onClick={this.studentGradesButtonClick}
+          value="student-grades"
+          onClick={this.buttonClick}
         >Grades</button>
         </div>
       </div>
