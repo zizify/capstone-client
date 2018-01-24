@@ -58,7 +58,6 @@ export class UserColumn extends React.Component {
     }
 
     const renderButtons = () => {
-      console.log('THIS.PROPS', this.props)
       if(this.props.student) {
         return (
           <div>

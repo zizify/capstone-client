@@ -12,7 +12,6 @@ import StudentGrades from './views/student-grades';
 import { connect } from 'react-redux';
 
 export  function ViewContainer (props) {
-  console.log(props)
     if (props.view === 'new') {
       return (
         <div className="new-container">

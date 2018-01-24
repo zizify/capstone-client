@@ -25,14 +25,12 @@ export class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     // this.props.dispatch(fetchProtectedData());
     // this.props.dispatch(fetchStudentData());
     // this.props.dispatch(fetchTeacherData());
   }
 
   updateView = viewString => {
-    console.log(viewString);
     this.setState({
       view: viewString
     });
@@ -90,7 +88,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('MAPSTATETOPROPS', state);
+  //console.log('MAPSTATETOPROPS', state);
   const { currentUser } = state.auth;
   return {
     userdata: state.teachers.data.teacher || state.students.data.student,
