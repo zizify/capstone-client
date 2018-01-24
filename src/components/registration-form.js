@@ -3,7 +3,6 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
-import {connect} from 'react-redux';
 
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 export class RegistrationForm extends React.Component {
@@ -85,9 +84,3 @@ export default reduxForm({
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);
-
-const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
-});
-
-// export default connect(mapStateToProps)(RegistrationForm);

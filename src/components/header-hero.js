@@ -1,12 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
 import RegistrationForm from './registration-form';
 
 export class HeaderHero extends React.Component {
     render() {
-        // Only render the log out button if we are logged in
         return (
             <div className="header__hero">
               <div className="header__form-text-container">
