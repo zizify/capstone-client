@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 import HeaderNav from './header-nav';
-import StudentDashboard from './students/student-dashboard';
+import  StudentDashboard  from './students/student-dashboard';
+import { TeacherDashboard } from './teachers/teacher-dashboard';
 
 
 export class Dashboard extends React.Component {
@@ -19,10 +20,20 @@ export class Dashboard extends React.Component {
       return <h1>Loading....</h1>;
     }
 
+    const dashboard = () => {
+      if (this.props.isTeacher) {
+        return <TeacherDashboard />
+      }
+      else {
+        return <StudentDashboard />
+      }
+    }
+
+
     return (
       <div className="dashboard">
         <HeaderNav />
-        <StudentDashboard />
+        {dashboard()}
       </div>
     );
   }
@@ -33,7 +44,8 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data
+    protectedData: state.protectedData.data,
+    currentUser: state.auth.currentUser
   };
 };
 

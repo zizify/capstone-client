@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export class HeaderNav extends React.Component {
     logOut() {
@@ -16,7 +16,7 @@ export class HeaderNav extends React.Component {
         if (this.props.loggedIn) {
             logOutButton = (
                 <button
-                class="log-out-button"
+                className="log-out-button"
                 onClick={() => this.logOut()}>Log out</button>
             );
         }
