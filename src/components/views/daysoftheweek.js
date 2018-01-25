@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function DaysOfTheWeek(props) {
+
   return (
     <div className="daysoftheweek">
       <nav>
@@ -10,7 +11,7 @@ export default function DaysOfTheWeek(props) {
               className="daysoftheweek-button"
               type="button"
               id="2"
-              // onClick={() => props.clickDayLink()}
+              onClick={(e) => props.clickDayLink(e)}
             >
               Mon
             </button>
@@ -20,7 +21,7 @@ export default function DaysOfTheWeek(props) {
               className="daysoftheweek-button"
               type="button"
               id="3"
-              // onClick={() => props.clickDayLink()}
+              onClick={(e) => props.clickDayLink(e)}
             >
               Tue
             </button>
@@ -30,7 +31,7 @@ export default function DaysOfTheWeek(props) {
               className="daysoftheweek-button"
               type="button"
               id="4"
-              // onClick={() => props.clickDayLink()}
+              onClick={(e) => props.clickDayLink(e)}
             >
               Wed
             </button>
@@ -40,7 +41,7 @@ export default function DaysOfTheWeek(props) {
               className="daysoftheweek-button"
               type="button"
               id="5"
-              // onClick={() => props.clickDayLink()}
+              onClick={(e) => props.clickDayLink(e)}
             >
               Thur
             </button>
@@ -50,7 +51,7 @@ export default function DaysOfTheWeek(props) {
               className="daysoftheweek-button"
               type="button"
               id="6"
-              // onClick={() => props.clickDayLink()}
+              onClick={(e) => props.clickDayLink(e)}
             >
               Fri
             </button>
@@ -60,7 +61,7 @@ export default function DaysOfTheWeek(props) {
               className="daysoftheweek-button"
               type="button"
               id="7"
-              // onClick={() => props.clickAllLink()}
+              onClick={(e) => props.clickAllLink(e)}
             >
               All
             </button>

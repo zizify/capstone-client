@@ -1,7 +1,6 @@
 import React from 'react';
 import requiresLogin from './requires-login';
-import StudentNew from './views/student-new';
-import StudentUpcoming from './views/student-upcoming';
+import StudentAssignments from './views/student-assignments';
 import StudentGrades from './views/student-grades';
 import TeacherAssignments from './views/teacher-assignments';
 import TeacherClassForm from './views/teacher-class-form';
@@ -12,16 +11,14 @@ import { connect } from 'react-redux';
 
 export default function ViewContainer(props) {
     //Refactor StudentNew and StudentUpcoming as one component, pass down view as prop
-    if (props.view === 'new') {
+    console.log('ViewContainer', props)
+    if (props.view === 'new' || props.view === 'upcoming') {
       return (
-        <div className="new-container">
-          <StudentNew />
-        </div>
-      );
-    } else if (props.view === 'upcoming') {
-      return (
-        <div className="upcoming-container">
-          <StudentUpcoming />
+        <div className="assignment-container">
+          <StudentAssignments 
+            assignments={props.userdata.relevant}
+            view={props.view}
+          />
         </div>
       );
     } else if (props.view === 'student-grades') {
