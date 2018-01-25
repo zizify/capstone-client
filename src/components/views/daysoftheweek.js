@@ -1,0 +1,72 @@
+import React from 'react';
+
+export default function DaysOfTheWeek(props) {
+  return (
+    <div className="navigation">
+      <nav>
+        <ul className="nav-links">
+          <li>
+            <button
+              className="nav-link"
+              type="button"
+              id="2"
+              onClick={this.clickDayLink}
+            >
+              Mon
+            </button>
+          </li>
+          <li>
+            <button
+              className="nav-link"
+              type="button"
+              id="3"
+              onClick={this.clickDayLink}
+            >
+              Tue
+            </button>
+          </li>
+          <li>
+            <button
+              className="nav-link"
+              type="button"
+              id="4"
+              onClick={this.clickDayLink}
+            >
+              Wed
+            </button>
+          </li>
+          <li>
+            <button
+              className="nav-link"
+              type="button"
+              id="5"
+              onClick={this.clickDayLink}
+            >
+              Thur
+            </button>
+          </li>
+          <li>
+            <button
+              className="nav-link"
+              type="button"
+              id="6"
+              onClick={this.clickDayLink}
+            >
+              Fri
+            </button>
+          </li>
+          <li>
+            <button
+              className="nav-link"
+              type="button"
+              id="7"
+              onClick={this.clickAllLink}
+            >
+              All
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
