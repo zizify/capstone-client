@@ -5,8 +5,7 @@ export default class StudentAssignments extends React.Component {
   constructor() {
     super();
     this.state = {
-      day: 0,
-      all: false
+      day: 0
     };
   }
 
@@ -17,21 +16,11 @@ export default class StudentAssignments extends React.Component {
     });
   };
 
-  clickAllLink = e => {
-    this.setState({
-      day: parseInt(e.target.id, 10),
-      all: true
-    });
-  };
-
   render() {
-    console.log('ST+++', this.state)
+    console.log('ST+++', this.state);
     return (
       <div>
-        <DaysOfTheWeek 
-          clickDayLink={this.clickDayLink}
-          clickAllLink={this.clickAllLink}
-        />
+        <DaysOfTheWeek clickDayLink={this.clickDayLink} />
       </div>
     );
   }

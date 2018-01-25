@@ -1,72 +1,34 @@
 import React from 'react';
 
 export default function DaysOfTheWeek(props) {
-
+  const dayButtons = () => {
+    const buttonProps = [
+      ['Mon', '2'],
+      ['Tue', '3'],
+      ['Wed', '4'],
+      ['Thur', '5'],
+      ['Fri', '6'],
+      ['All', '0']
+    ];
+    return buttonProps.map((button, index) => {
+      return (
+        <li key={index}>
+          <button
+            className="daysoftheweek-button"
+            type="button"
+            id={button[1]}
+            onClick={e => props.clickDayLink(e)}
+          >
+            {button[0]}
+          </button>
+        </li>
+      );
+    });
+  };
   return (
     <div className="daysoftheweek">
       <nav>
-        <ul className="daysoftheweek-buttons">
-          <li>
-            <button
-              className="daysoftheweek-button"
-              type="button"
-              id="2"
-              onClick={(e) => props.clickDayLink(e)}
-            >
-              Mon
-            </button>
-          </li>
-          <li>
-            <button
-              className="daysoftheweek-button"
-              type="button"
-              id="3"
-              onClick={(e) => props.clickDayLink(e)}
-            >
-              Tue
-            </button>
-          </li>
-          <li>
-            <button
-              className="daysoftheweek-button"
-              type="button"
-              id="4"
-              onClick={(e) => props.clickDayLink(e)}
-            >
-              Wed
-            </button>
-          </li>
-          <li>
-            <button
-              className="daysoftheweek-button"
-              type="button"
-              id="5"
-              onClick={(e) => props.clickDayLink(e)}
-            >
-              Thur
-            </button>
-          </li>
-          <li>
-            <button
-              className="daysoftheweek-button"
-              type="button"
-              id="6"
-              onClick={(e) => props.clickDayLink(e)}
-            >
-              Fri
-            </button>
-          </li>
-          <li>
-            <button
-              className="daysoftheweek-button"
-              type="button"
-              id="7"
-              onClick={(e) => props.clickAllLink(e)}
-            >
-              All
-            </button>
-          </li>
-        </ul>
+        <ul className="daysoftheweek-buttons">{dayButtons()}</ul>
       </nav>
     </div>
   );
