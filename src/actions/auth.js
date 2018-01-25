@@ -44,7 +44,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
-    console.log(username, password)
     return (
         fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
@@ -97,6 +96,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             // We couldn't get a refresh token because our current credentials
             // are invalid or expired, or something else went wrong, so clear
             // them and sign us out
+            console.log(err,'this is the error')
             dispatch(authError(err));
             dispatch(clearAuth());
             clearAuthToken(authToken);

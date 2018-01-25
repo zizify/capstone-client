@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
-import TeacherDashboard from './teachers/teacher-dashboard';
 import RegistrationPage from './registration-page';
 import LoginWrapper from './LoginWrapper';
 import {refreshAuthToken} from '../actions/auth';
@@ -43,7 +42,6 @@ export class App extends React.Component {
             <div className="app">
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/dashboard/teacher" component={TeacherDashboard} />
                 <Route exact path="/login" component={LoginWrapper} />
                 <Route exact path="/register" component={RegistrationPage} />
             </div>

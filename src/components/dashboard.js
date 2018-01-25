@@ -35,15 +35,19 @@ export class Dashboard extends React.Component {
       view: viewString
     });
   };
-
   render() {
     if (this.props.loading) {
       return <h2>Loading...</h2>;
     }
+    console.log(this.props, 'Dashboard props')
     return (
     <div>
       <HeaderNav />
-      <UserColumn isTeacher={this.props.isTeacher} updateView={this.updateView}/>
+      <UserColumn 
+        currentUser={this.props.user} 
+        updateView={this.updateView}
+
+        />
       <ViewContainer view={this.state.view} test={'test'}/>
     </div>
     )
@@ -91,6 +95,7 @@ const mapStateToProps = state => {
   //console.log('MAPSTATETOPROPS', state);
   const { currentUser } = state.auth;
   return {
+    user: state.auth.currentUser,
     userdata: state.teachers.data.teacher || state.students.data.student,
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,

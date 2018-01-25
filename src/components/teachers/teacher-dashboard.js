@@ -4,7 +4,7 @@ import requiresLogin from '../requires-login';
 import { fetchProtectedData } from '../../actions/protected-data';
 
 import { fetchTeacherData } from '../../actions/teachers';
-import { UserColumn } from '../user-column';
+// import { UserColumn } from '../user-column';
 
 import HeaderNav from '../header-nav';
 
