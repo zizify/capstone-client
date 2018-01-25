@@ -5,10 +5,7 @@ import Header from './header';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
-  if (props.loggedIn && props.isTeacher) {
-    return <Redirect to="/dashboard/teacher" />;
-  }
-  if (props.loggedIn && !props.isTeacher) {
+  if (props.loggedIn) {
     return <Redirect to="/dashboard" />;
   }
   return (

@@ -21,8 +21,8 @@ export class StudentDashboard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(fetchStudentData());
+    // this.props.dispatch(fetchProtectedData());
+    // this.props.dispatch(fetchStudentData());
   }
 
   clickDayLink = e => {

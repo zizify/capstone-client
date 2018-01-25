@@ -1,56 +1,38 @@
 import React from 'react';
-import HeaderNav from './header-nav';
-import UserColumn from './user-column';
+
 import requiresLogin from './requires-login';
 import StudentNew from './views/student-new';
 import StudentUpcoming from './views/student-upcoming';
 import StudentGrades from './views/student-grades';
-import { ViewContainer } from './view-container';
 // import TeacherAssignments from './teacher-assignments';
 // import TeacherClassForm from './teacher-class-form';
 // import TeacherAssignmentForm from './teacher-assignment-form';
 // import TeacherGrades from './teacher-grades';
 // import TeacherStudents from './teacher-students';
-import { fetchStudentData } from '../actions/students';
-import { fetchTeacherData } from '../actions/teachers';
-import { fetchProtectedData } from '../actions/protected-data';
 import { connect } from 'react-redux';
 
-export class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      view: null
-    };
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-    this.props.user.isTeacher ? this.props.dispatch(fetchTeacherData()) : this.props.dispatch(fetchStudentData());
-  }
-
-  updateView = viewString => {
-    this.setState({
-      view: viewString
-    });
-  };
-  render() {
-    if (this.props.loading) {
-      return <h2>Loading...</h2>;
+export  function ViewContainer (props) {
+    if (props.view === 'new') {
+      return (
+        <div className="new-container">
+          <StudentNew />
+        </div>
+      );
+    } else if (props.view === 'upcoming') {
+      return (
+        <div className="upcoming-container">
+          <StudentUpcoming />
+        </div>
+      );
+    } else if (props.view === 'student-grades') {
+      return (
+        <div className="student-grades-container">
+          <StudentGrades />
+        </div>
+      );
+    } else {
+      return <div></div>
     }
-    console.log(this.props, 'Dashboard props')
-    return (
-    <div>
-      <HeaderNav />
-      <UserColumn 
-        currentUser={this.props.user} 
-        updateView={this.updateView}
-
-        />
-      <ViewContainer view={this.state.view} test={'test'}/>
-    </div>
-    )
-   
     // } else if (this.state.view === 'assignments') {
     //     return (
     //         <div className="assignments-container">
@@ -87,19 +69,8 @@ export class Dashboard extends React.Component {
     //         </div>
     //     )
     // }
-  }
 }
 
-const mapStateToProps = state => {
-  //console.log('MAPSTATETOPROPS', state);
-  const { currentUser } = state.auth;
-  return {
-    user: state.auth.currentUser,
-    userdata: state.teachers.data.teacher || state.students.data.student,
-    username: state.auth.currentUser.username,
-    name: `${currentUser.firstName} ${currentUser.lastName}`,
-    loading: state.students.loading
-  };
-};
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(ViewContainer)
+
