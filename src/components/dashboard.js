@@ -39,14 +39,13 @@ export class Dashboard extends React.Component {
         updateView={this.updateView}
 
         />
-      <ViewContainer view={this.state.view}/>
+      <ViewContainer view={this.state.view} user={this.props.user} userdata={this.props.userdata}/>
     </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  //console.log('MAPSTATETOPROPS', state);
   const { currentUser } = state.auth;
   return {
     user: state.auth.currentUser,

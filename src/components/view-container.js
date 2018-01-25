@@ -11,6 +11,7 @@ import TeacherStudents from './views/teacher-students';
 import { connect } from 'react-redux';
 
 export default function ViewContainer(props) {
+    //Refactor StudentNew and StudentUpcoming as one component, pass down view as prop
     if (props.view === 'new') {
       return (
         <div className="new-container">
