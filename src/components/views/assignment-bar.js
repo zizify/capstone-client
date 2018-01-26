@@ -1,6 +1,5 @@
 import React from 'react';
 export default function AssignmentBar(props){
-  console.log(props.bars)
   let bars = props.bars;
   const mappedBars = bars.map((each, index) => {
     return (
@@ -22,7 +21,6 @@ export default function AssignmentBar(props){
     </div>
     )
   })
-  console.log(mappedBars)
   return (
     <h1>{mappedBars}</h1>
   )

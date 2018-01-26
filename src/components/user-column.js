@@ -37,8 +37,7 @@ export default function UserColumn(props) {
     }
   } 
 
-  console.log(props)
-    if (!props) {
+  if (!props) {
       return <h1>Loading....</h1>
     }
     

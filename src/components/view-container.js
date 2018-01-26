@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 
 export default function ViewContainer(props) {
     //Refactor StudentNew and StudentUpcoming as one component, pass down view as prop
-    console.log('ViewContainer', props)
     if (props.view === 'new' || props.view === 'upcoming') {
       return (
         <div className="assignment-container">

@@ -51,7 +51,6 @@ export class StudentDashboard extends React.Component {
 
     }
     const studentData = () => {
-      console.log(this.props.student, 'grades')
       let assignments = this.props.student.relevant;
       assignments  = assignments.sort((a, b) => {
         return b.assignDate.date > a.assignDate.date

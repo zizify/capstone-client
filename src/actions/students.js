@@ -21,7 +21,6 @@ const fetchStudentDataError = error => ({
 export const fetchStudentData = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchStudentDataRequest());
-  console.log('fetch student data working')
   fetch(`${API_BASE_URL}/assignments/student`,  {
     method: 'GET',
     headers: {

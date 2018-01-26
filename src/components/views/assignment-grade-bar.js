@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function AssignmentGradeBar(props) {
-  console.log(props.bars)
   const bars = props.bars
   const mappedBars = bars.map((each, index) => {
     return (

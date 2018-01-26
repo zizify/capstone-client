@@ -19,7 +19,6 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_TEACHER_DATA_SUCCESS) {
-    console.log('actionTEACHERSuccess Reducer', action);
     return Object.assign({}, state, {
       data: action,
       loading: false,

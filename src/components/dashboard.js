@@ -30,7 +30,6 @@ export class Dashboard extends React.Component {
     if (this.props.loading) {
       return <h2>Loading...</h2>;
     }
-    console.log(this.props, 'Dashboard props')
     return (
     <div>
       <HeaderNav />
