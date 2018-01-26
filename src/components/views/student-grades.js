@@ -16,13 +16,17 @@ export default class StudentGrades extends React.Component {
     })
   }
 
+  findClassAssignments = value => {
+    let relevantAssignments = this.props.userdata.relevant.filter(each => each.className === value)
+    return relevantAssignments;
+  }
+
   render() {
-    console.log(this.state);
     return (
       <div>
         <h2>StudentGrades</h2>
-        <ClassFilter classes={this.props.userdata.grades} updateClass={this.updateClass}/>
-        <AssignmentGradeBar bars={this.props.userdata.relevant}/>
+        <ClassFilter classes={Object.keys(this.props.userdata.grades)} updateClass={this.updateClass}/>
+        <AssignmentGradeBar bars={this.findClassAssignments(this.state.className)}/>
       </div>
     )
   }

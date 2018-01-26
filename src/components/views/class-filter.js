@@ -1,8 +1,7 @@
 import React from 'react';
 
 export default function ClassFilter(props) {
-    let classes = Object.keys(props.classes);
-    let classButtons = classes.map((each, index) => {
+    let classButtons = props.classes.map((each, index) => {
         return (
             <li key={index}>
                 <button
