@@ -1,5 +1,5 @@
 import React from 'react';
-import DaysOfTheWeek from './daysoftheweek';
+import DaysWeek from './days-week';
 import AssignmentBar from './assignment-bar';
 
 export default class StudentAssignments extends React.Component {
@@ -35,7 +35,7 @@ export default class StudentAssignments extends React.Component {
   render() {
     return (
       <div>
-        <DaysOfTheWeek clickDayLink={this.clickDayLink} />
+        <DaysWeek clickDayLink={this.clickDayLink} />
         <AssignmentBar bars={this.findRelevantAssignments(this.props.view)}/>
       </div>
     );
