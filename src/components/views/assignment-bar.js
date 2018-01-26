@@ -1,24 +1,29 @@
 import React from 'react';
-
 export default function AssignmentBar(props){
-  return (
-    <div className="assignment">
+  console.log(props.bars)
+  let bars = props.bars;
+  const mappedBars = bars.map((each, index) => {
+    return (
+      <div 
+        className="assignment"
+        key={index}
+        >
       <div className="assignment__header">
-        <h3>Assignment 6</h3>
-        <h3> 25 pts </h3>
-        <h3> Due Date </h3>
-        <button>Edit</button>
+        <h3>{each.className}</h3>
+        <h3>{each.title}</h3>
+        <h3>{each.dueDate.date}</h3>
       </div>
       <div className="assignment__details">
-        <h3>Title</h3>
-        <h3> Goals </h3>
-        <ul>
-          <li>sine</li>
-          <li>cosine</li>
-          <li>tangent</li>
-        </ul>
-        <h3>Comments</h3>
+        <h3>{each.subject}</h3>
+        <h3>Goals</h3>
+          <h4>{each.goals}</h4>
+        <h3>{each.comments}</h3>
       </div>
     </div>
+    )
+  })
+  console.log(mappedBars)
+  return (
+    <h1>{mappedBars}</h1>
   )
-}
+  }

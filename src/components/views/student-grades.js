@@ -5,7 +5,7 @@ export default function StudentGrades(props) {
     return (
       <div>
         <h2>StudentGrades</h2>
-        <AssignmentGradeBar />
+        <AssignmentGradeBar bars={props.assignments}/>
       </div>
     )
 }
