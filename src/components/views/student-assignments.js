@@ -17,11 +17,28 @@ export default class StudentAssignments extends React.Component {
     });
   };
 
+  findRelevantAssignments = view => {
+    let date = '';
+
+    if (view === 'new') {
+      date = 'assignDate'
+    } else if (view === 'upcoming') {
+      date = 'dueDate'
+    }
+
+    let relevantAssignments = this.state.day 
+        ? this.props.assignments.filter(each => each[date].weekday === this.state.day) 
+        : this.props.assignments;
+    return relevantAssignments;
+  }
+
   render() {
+    let relevantAssignments = this.findRelevantAssignments(this.props.view);
     return (
       <div>
         <DaysOfTheWeek clickDayLink={this.clickDayLink} />
-        <AssignmentBar bars={this.props.assignments}/>
+        {/* change the props here */}
+        <AssignmentBar bars={relevantAssignments}/>
       </div>
     );
   }
