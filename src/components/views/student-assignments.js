@@ -33,12 +33,10 @@ export default class StudentAssignments extends React.Component {
   }
 
   render() {
-    let relevantAssignments = this.findRelevantAssignments(this.props.view);
     return (
       <div>
         <DaysOfTheWeek clickDayLink={this.clickDayLink} />
-        {/* change the props here */}
-        <AssignmentBar bars={relevantAssignments}/>
+        <AssignmentBar bars={this.findRelevantAssignments(this.props.view)}/>
       </div>
     );
   }
