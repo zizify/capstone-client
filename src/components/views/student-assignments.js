@@ -12,8 +12,7 @@ export default class StudentAssignments extends React.Component {
 
   clickDayLink = e => {
     this.setState({
-      day: parseInt(e.target.id, 10),
-      all: false
+      day: parseInt(e.target.id, 10)
     });
   };
 
