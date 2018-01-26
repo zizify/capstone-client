@@ -1,5 +1,6 @@
 import React from 'react';
 import ClassFilter from './class-filter';
+import ClassGradeBar from './class-grade-bar';
 import AssignmentGradeBar from './assignment-grade-bar';
 
 export default class StudentGrades extends React.Component {
@@ -26,6 +27,7 @@ export default class StudentGrades extends React.Component {
       <div>
         <h2>StudentGrades</h2>
         <ClassFilter classes={Object.keys(this.props.userdata.grades)} updateClass={this.updateClass}/>
+        <ClassGradeBar relevantClass={this.props.userdata.grades[this.state.className]}/>
         <AssignmentGradeBar bars={this.findClassAssignments(this.state.className)}/>
       </div>
     )
