@@ -5,11 +5,14 @@ export default function ClassGradeBar(props) {
     let pointsEarned;
     let classAverage;
     let letterGrade;
+    let classAverageString;
 
     if (props.relevantClass) {
         points = props.relevantClass.points;
         pointsEarned = props.relevantClass.pointsEarned;
         classAverage = points ? (pointsEarned/points)*100 : 0;
+        classAverageString = classAverage.toString();
+
         
         if (classAverage <= 100 && classAverage >= 90) {
             letterGrade = 'A';
@@ -23,11 +26,9 @@ export default function ClassGradeBar(props) {
             letterGrade = 'F';
         }
 
-        let classAverageString = classAverage.toString();
-
         if (classAverage === 100 || ['6', '7', '8', '9'].includes(classAverageString[0]) && ['7', '8', '9'].includes(classAverageString[1])) {
             letterGrade += '+';
-        } else if (['6', '7', '8', '9'].includes(classAverageString[0]) && ['0', '1', '2'].includes(classAverage.toString()[1])) {
+        } else if (['6', '7', '8', '9'].includes(classAverageString[0]) && ['0', '1', '2'].includes(classAverageString.toString()[1])) {
             letterGrade += '-';
         }
     }
