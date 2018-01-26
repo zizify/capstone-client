@@ -9,7 +9,7 @@ export default function ClassGradeBar(props) {
     if (props.relevantClass) {
         points = props.relevantClass.points;
         pointsEarned = props.relevantClass.pointsEarned;
-        classAverage = points ? pointsEarned/points : 0;
+        classAverage = points ? (pointsEarned/points)*100 : 0;
         
         if (classAverage === 100) {
             letterGrade = 'A+';
