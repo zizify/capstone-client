@@ -23,7 +23,7 @@ export default function ViewContainer(props) {
     } else if (props.view === 'student-grades') {
       return (
         <div className="student-grades-container">
-          <StudentGrades assignments={props.userdata.relevant}/>
+          <StudentGrades userdata={props.userdata}/>
         </div>
       );
      } else if (props.view === 'assignments') {
