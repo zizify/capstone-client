@@ -2,12 +2,28 @@ import React from 'react';
 import ClassFilter from './class-filter';
 import AssignmentGradeBar from './assignment-grade-bar';
 
-export default function StudentGrades(props) {
+export default class StudentGrades extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      className: ''
+    }
+  };
+
+  updateClass = value => {
+    this.setState({
+      className: value
+    })
+  }
+
+  render() {
+    console.log(this.state);
     return (
       <div>
         <h2>StudentGrades</h2>
-        <ClassFilter classes={props.userdata.grades}/>
-        <AssignmentGradeBar bars={props.userdata.relevant}/>
+        <ClassFilter classes={this.props.userdata.grades} updateClass={this.updateClass}/>
+        <AssignmentGradeBar bars={this.props.userdata.relevant}/>
       </div>
     )
+  }
 }

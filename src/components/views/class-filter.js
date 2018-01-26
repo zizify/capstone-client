@@ -8,7 +8,7 @@ export default function ClassFilter(props) {
                 <button
                     className="class-button"
                     value={each}
-                    onClick={e => console.log(e.target.value)}
+                    onClick={e => props.updateClass(e.target.value)}
                 >
                     {each}
                 </button>
