@@ -18,7 +18,7 @@ export default class TeacherAssignments extends React.Component {
 
   findRelevantAssignments = () => {
     let relevantAssignments;
-    if (this.state === 'all') {
+    if (this.state.class === 'all') {
       relevantAssignments = this.props.userdata.all;
     } else {
       relevantAssignments = this.props.userdata.all.filter(
