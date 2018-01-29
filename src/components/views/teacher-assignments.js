@@ -1,17 +1,20 @@
 import React from 'react';
+import TeacherClassFilter from './teacher-class-filter';
 
-export default function TeacherAssignments(props) {
-  const classes = props.user.classes.map((each, index) => {
+export default class TeacherAssignments extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      class: ''
+    };
+  }
+  render() {
+    
     return (
-      <li key={index}>
-        <button value={each.className}>{each.className}</button>
-      </li>
+      <div>
+        <h2>TeacherAssignments</h2>
+        <TeacherClassFilter user={this.props.user}/>
+      </div>
     );
-  });
-  return (
-    <div>
-      <h2>TeacherAssignments</h2>
-      <ul>{classes}</ul>
-    </div>
-  );
+  }
 }
