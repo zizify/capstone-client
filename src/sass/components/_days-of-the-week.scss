@@ -1,24 +1,51 @@
-.daysoftheweek {
+.assignment-view {
 
-  margin-top: 13rem;
-  margin-bottom: 10rem;
+  & .daysoftheweek {
+    margin-top: 13rem;
+    margin-bottom: 10rem;
 
-  & ul {
-  text-decoration: none;
-  list-style-type: none;
+    & ul {
+      text-decoration: none;
+      list-style-type: none;
+      padding-left: 0;
 
-  & li {
-    display: inline-block;
+      & li {
+        display: inline-block;
 
-    & button {
-      height: 10rem;
-      width: 10rem;
-      border-radius: 1000px;
-      outline: none;
-      border: none;
-      cursor: pointer;
+        & button {
+          height: 10rem;
+          width: 10rem;
+          border-radius: 1000px;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          font-size: 3rem;
+          
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
     }
   }
-  
+  & .student-assignments {
+    text-align: center;
+    overflow: auto;
+    max-height: 400px;
+
+    & .Collapsible {
+      padding: 2rem;
+      width: 70%;
+      margin: 0 auto;
+      background-color: white;
+      color: black;
+      margin-bottom: 1rem;
+      border-radius: 3px;
+      box-shadow: 0 5px 10px rgba(0,0,0, .4);
+
+      & span {
+        cursor: pointer;
+      }
+    }
   }
 }

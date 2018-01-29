@@ -35,14 +35,14 @@ export default function ClassGradeBar(props) {
 
     return (
         <div className="class-grade-bar-container">
-            <ul className="class-grades">
-                <li className="class-average">
+            <div className="class-grades">
+                <div className="class-average">
                     <h3>{classAverage}%</h3>
-                </li>
-                <li className="letter-grade">
+                </div>
+                <div className="letter-grade">
                     <h3>{letterGrade}</h3>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     )
 }

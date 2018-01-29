@@ -6,8 +6,8 @@ export default function AssignmentBar(props){
   const mappedBars = bars.map((each, index) => {
     return (
       <Collapsible
+        className="test-classname"
         trigger={`${each.className}${each.title}${each.dueDate.date}`}
-        className="student-assignment-card"
         key={index}
         >
       <div className="assignment__details">
@@ -20,6 +20,8 @@ export default function AssignmentBar(props){
     )
   })
   return (
-    <div>{mappedBars}</div>
+    <div className="student-assignments">
+      {mappedBars}
+    </div>
   )
   }
