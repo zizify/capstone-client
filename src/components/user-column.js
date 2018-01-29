@@ -1,5 +1,4 @@
 import React from 'react';
-import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 import { fetchStudentData } from '../actions/students';
@@ -54,10 +53,9 @@ export class UserColumn extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
-    user: currentUser
+    user: state.auth.currentUser
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(UserColumn));
+export default connect(mapStateToProps)(UserColumn);
