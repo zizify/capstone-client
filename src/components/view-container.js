@@ -1,64 +1,30 @@
 import React from 'react';
-import requiresLogin from './requires-login';
-import StudentAssignments from './views/student-assignments';
-import StudentGrades from './views/student-grades';
-import TeacherAssignments from './views/teacher-assignments';
-import TeacherClassForm from './views/teacher-class-form';
-import TeacherAssignmentForm from './views/teacher-assignment-form';
-import TeacherGrades from './views/teacher-grades';
-import TeacherStudents from './views/teacher-students';
-import { connect } from 'react-redux';
+import StudentView from './views/student-view';
+import TeacherForm from './views/teacher-form';
+import TeacherView from './views/teacher-view';
 
 export default function ViewContainer(props) {
-    //Refactor StudentNew and StudentUpcoming as one component, pass down view as prop
-    if (props.view === 'new' || props.view === 'upcoming') {
-      return (
-        <div className="assignment-view-container">
-          <StudentAssignments 
-            assignments={props.userdata.relevant}
-            view={props.view}
-          />
-        </div>
-      );
-    } else if (props.view === 'student-grades') {
-      return (
-        <div className="student-grades-container">
-          <StudentGrades userdata={props.userdata}/>
-        </div>
-      );
-     } else if (props.view === 'assignments') {
+    if (props.view === 'new' || props.view === 'upcoming' || props.view === 'student-grades') {
         return (
-            <div className="assignments-container">
-                <TeacherAssignments />
+            <div className="student-views-container">
+                <StudentView view={props.view} />
             </div>
-        )
-    } else if (props.view === 'classform') {
+        );
+    } else if (props.view === 'assignments' || props.view === 'teacher-grades' || props.view === 'students') {
         return (
-            <div className="classform-container">
-                <TeacherClassForm />
+            <div className="teacher-views-container">
+                <TeacherView view={props.view} updateView={props.updateView}/>
             </div>
-        )
-    } else if (props.view === 'assignmentform') {
+        );
+    } else if (props.view === 'teacher-class-form' || props.view === 'teacher-assignment-form' ) {
         return (
-            <div className="assignmentform-container">
-                <TeacherAssignmentForm />
+            <div className="forms-container">
+                <TeacherForm view={props.view}/>
             </div>
-        )
-    } else if (props.view === 'teacher-grades') {
-        return (
-            <div className="teacher-grades-container">
-                <TeacherGrades />
-            </div>
-        )
-    } else if (props.view === 'students') {
-        return (
-            <div className="students-container">
-                <TeacherStudents />
-            </div>
-        )
+        );
     } else {
         return (
         <h2>Click a button</h2>
-      )
+      );
     }
 }

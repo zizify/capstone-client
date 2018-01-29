@@ -1,24 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchProtectedData } from '../actions/protected-data';
-import { fetchStudentData } from '../actions/students';
-import { fetchTeacherData } from '../actions/teachers';
 
-export default function UserColumn(props) {
-  
-  const buttonClick = e => {
-    props.updateView(e.target.value)
-  }
-
-  const buttons = () => {
-    if(props.currentUser.isTeacher) {
+export class UserColumn extends React.Component {
+  buttons = () => {
+    if (this.props.user.isTeacher) {
       const teacherButtonText = [['assignments', 'Assignments'], ['teacher-grades', 'Grades'], ['students', 'Students']]
       return teacherButtonText.map((each, index) => {
         return (
           <button
             key={index}
             value={each[0]}
-            onClick={buttonClick}
+            onClick={e => this.props.updateView(e.target.value)}
           >{each[1]}</button>
         )
       })
@@ -30,23 +22,33 @@ export default function UserColumn(props) {
           <button
             key={index}
             value={each[0]}
-            onClick={buttonClick}
+            onClick={e => this.props.updateView(e.target.value)}
           >{each[1]}</button>
         )
       })
     }
-  } 
+  }
 
-  if (!props) {
-      return <h1>Loading....</h1>
-    }
+  render() {
+    if (!this.props) {
+        return <h1>Loading....</h1>
+      }
     
-      return ( 
+    return ( 
       <div className="user-column">
         <h1>User Column</h1>
-        <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
-        <h2>{`Hello, ${props.currentUser.firstName}!`}</h2>
-          {buttons()}
+        <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206" alt="Chalktalk logo"></img>
+        <h2>{`Hello, ${this.props.user.firstName}!`}</h2>
+          {this.buttons()}
         </div>
       )
   }
+}
+
+const mapStateToProps = state => {
+  return {
+    user: state.auth.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(UserColumn);
