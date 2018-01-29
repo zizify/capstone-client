@@ -3,6 +3,7 @@ import Collapsible from 'react-collapsible';
 
 export default function AssignmentBar(props){
   let bars = props.bars;
+  console.log('BARS', bars)
   const mappedBars = bars.map((each, index) => {
     return (
       <Collapsible
