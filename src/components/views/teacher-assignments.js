@@ -3,10 +3,6 @@ import AssignmentBar from './assignment-bar';
 import { connect } from 'react-redux';
 
 export class TeacherAssignments extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
   findRelevantAssignments = () => {
       let relevantAssignments;
 

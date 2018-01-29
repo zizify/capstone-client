@@ -2,7 +2,6 @@ import React from 'react';
 import StudentView from './views/student-view';
 import TeacherForm from './views/teacher-form';
 import TeacherView from './views/teacher-view';
-import { connect } from 'react-redux';
 
 export default function ViewContainer(props) {
     if (props.view === 'new' || props.view === 'upcoming' || props.view === 'student-grades') {

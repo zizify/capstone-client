@@ -1,14 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchProtectedData } from '../actions/protected-data';
-import { fetchStudentData } from '../actions/students';
-import { fetchTeacherData } from '../actions/teachers';
 
 export class UserColumn extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   buttons = () => {
     if (this.props.user.isTeacher) {
       const teacherButtonText = [['assignments', 'Assignments'], ['teacher-grades', 'Grades'], ['students', 'Students']]
@@ -44,7 +37,7 @@ export class UserColumn extends React.Component {
     return ( 
       <div className="user-column">
         <h1>User Column</h1>
-        <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206"></img>
+        <img src="https://cdn7.bigcommerce.com/s-fkt3i18h/product_images/uploaded_images/reading.png?t=1516737669&_ga=2.25683967.332062381.1516737598-1817016180.1514945206" alt="Chalktalk logo"></img>
         <h2>{`Hello, ${this.props.user.firstName}!`}</h2>
           {this.buttons()}
         </div>

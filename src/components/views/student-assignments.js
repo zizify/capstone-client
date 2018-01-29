@@ -2,7 +2,6 @@ import React from 'react';
 import DaysWeek from './days-week';
 import AssignmentBar from './assignment-bar';
 import { connect } from 'react-redux';
-import store from '../../store';
 
 export class StudentAssignments extends React.Component {
   constructor(props) {
