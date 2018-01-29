@@ -2,8 +2,9 @@ import React from 'react';
 import ClassFilter from './class-filter';
 import ClassGradeBar from './class-grade-bar';
 import AssignmentGradeBar from './assignment-grade-bar';
+import { connect } from 'react-redux';
 
-export default class StudentGrades extends React.Component {
+export class StudentGrades extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,3 +34,11 @@ export default class StudentGrades extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    userdata: state.students.data.student
+  };
+};
+
+export default connect(mapStateToProps)(StudentGrades);

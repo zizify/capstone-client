@@ -1,8 +1,10 @@
 import React from 'react';
 import DaysWeek from './days-week';
 import AssignmentBar from './assignment-bar';
+import { connect } from 'react-redux';
+import store from '../../store';
 
-export default class StudentAssignments extends React.Component {
+export class StudentAssignments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,3 +42,11 @@ export default class StudentAssignments extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    assignments: state.students.data.student.relevant
+  };
+};
+
+export default connect(mapStateToProps)(StudentAssignments);

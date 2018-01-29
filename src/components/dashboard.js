@@ -28,7 +28,6 @@ export class Dashboard extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     if (this.props.loading) {
       return <h2>Loading...</h2>;
     }
