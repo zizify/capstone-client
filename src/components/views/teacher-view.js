@@ -21,7 +21,7 @@ export class TeacherView extends React.Component {
 
   identifyComponent = view => {
       if (view === 'assignments') {
-          return <TeacherAssignments updateView={this.props.updateView} class={this.state.class} userdata={this.props.userdata}/>
+          return <TeacherAssignments updateView={this.props.updateView} class={this.state.class} />
       } else if (view === 'teacher-grades') {
           return <TeacherGrades />
       } else if (view === 'students') {
@@ -48,7 +48,6 @@ export class TeacherView extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.auth.currentUser,
-        userdata: state.teachers.data.teacher
     };
   };
   
