@@ -13,7 +13,7 @@ export class TeacherStudents extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.auth.currentUser,
-        userdata: state.teacher.data
+        userdata: state.teachers.data.teacher
     };
   };
   
