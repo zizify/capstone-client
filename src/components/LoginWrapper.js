@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import HeaderNav from './header-nav';
 
 import LoginForm from './login-form';
 
@@ -10,9 +11,12 @@ export function LoginWrapper(props) {
     }
     
     return (
+      <div>
+        <HeaderNav />
         <div className="login-wrapper">
             <LoginForm />
         </div>
+      </div>
     );
 }
 

@@ -31,15 +31,16 @@ export class Dashboard extends React.Component {
       return <h2>Loading...</h2>;
     }
     return (
-    <div>
-      <HeaderNav />
-      <UserColumn 
-        currentUser={this.props.user} 
-        updateView={this.updateView}
-
-        />
-      <ViewContainer view={this.state.view} user={this.props.user} userdata={this.props.userdata}/>
-    </div>
+      <div className="root-content-wrapper">
+        <HeaderNav />
+        <div className="content-wrapper">
+          <UserColumn 
+            currentUser={this.props.user} 
+            updateView={this.updateView}
+          />
+          <ViewContainer view={this.state.view} user={this.props.user} userdata={this.props.userdata}/>
+        </div>
+      </div>
     )
   }
 }

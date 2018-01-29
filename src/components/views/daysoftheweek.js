@@ -27,9 +27,7 @@ export default function DaysOfTheWeek(props) {
   };
   return (
     <div className="daysoftheweek">
-      <nav>
         <ul className="daysoftheweek-buttons">{dayButtons()}</ul>
-      </nav>
     </div>
   );
 }

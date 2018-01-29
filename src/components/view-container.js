@@ -13,7 +13,7 @@ export default function ViewContainer(props) {
     //Refactor StudentNew and StudentUpcoming as one component, pass down view as prop
     if (props.view === 'new' || props.view === 'upcoming') {
       return (
-        <div className="assignment-container">
+        <div className="assignment-view-container">
           <StudentAssignments 
             assignments={props.userdata.relevant}
             view={props.view}

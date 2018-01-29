@@ -1,0 +1,24 @@
+.daysoftheweek {
+
+  margin-top: 13rem;
+  margin-bottom: 10rem;
+
+  & ul {
+  text-decoration: none;
+  list-style-type: none;
+
+  & li {
+    display: inline-block;
+
+    & button {
+      height: 10rem;
+      width: 10rem;
+      border-radius: 1000px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  
+  }
+}
