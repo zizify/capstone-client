@@ -30,7 +30,6 @@ export class TeacherView extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <h2>TeacherView</h2>
