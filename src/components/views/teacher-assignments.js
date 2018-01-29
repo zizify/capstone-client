@@ -38,7 +38,7 @@ export default class TeacherAssignments extends React.Component {
           updateView={this.props.updateView}          
         />
         <AssignmentBar bars={this.findRelevantAssignments()} />
-        <button value="teacher-assignments-form" onClick={e => this.props.updateView(e.target.value)}>New Assignment</button>
+        <button value="teacher-assignment-form" onClick={e => this.props.updateView(e.target.value)}>New Assignment</button>
       </div>
     );
   }

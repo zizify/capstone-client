@@ -3,8 +3,7 @@ import requiresLogin from './requires-login';
 import StudentAssignments from './views/student-assignments';
 import StudentGrades from './views/student-grades';
 import TeacherAssignments from './views/teacher-assignments';
-import TeacherClassForm from './views/teacher-class-form';
-import TeacherAssignmentForm from './views/teacher-assignment-form';
+import TeacherForm from './views/teacher-form';
 import TeacherGrades from './views/teacher-grades';
 import TeacherStudents from './views/teacher-students';
 import { connect } from 'react-redux';
@@ -32,16 +31,11 @@ export default function ViewContainer(props) {
                 <TeacherAssignments userdata={props.userdata} user={props.user} updateView={props.updateView}/>
             </div>
         )
-    } else if (props.view === 'classform') {
+    } else if (props.view === 'teacher-class-form' || props.view === 'teacher-assignment-form') {
+        console.log('triggered')
         return (
-            <div className="classform-container">
-                <TeacherClassForm />
-            </div>
-        )
-    } else if (props.view === 'assignmentform') {
-        return (
-            <div className="assignmentform-container">
-                <TeacherAssignmentForm />
+            <div className="form-container">
+                <TeacherForm view={props.view}/>
             </div>
         )
     } else if (props.view === 'teacher-grades') {
