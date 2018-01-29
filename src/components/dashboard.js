@@ -27,6 +27,7 @@ export class Dashboard extends React.Component {
     });
   };
   render() {
+    console.log(this.state)
     if (this.props.loading) {
       return <h2>Loading...</h2>;
     }
@@ -39,7 +40,7 @@ export class Dashboard extends React.Component {
             currentUser={this.props.user} 
             updateView={this.updateView}
           />
-          <ViewContainer view={this.state.view} user={this.props.user} userdata={this.props.userdata}/>
+          <ViewContainer view={this.state.view} updateView={this.updateView} user={this.props.user} userdata={this.props.userdata}/>
         </div>
       </div>
     )

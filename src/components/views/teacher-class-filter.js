@@ -9,6 +9,13 @@ export default function TeacherClassFilter(props) {
     );
   });
   return (
-    <ul>{classes}</ul>
+    <div className="teacher-class-filter-container">
+      <ul>
+        {classes}
+        <li>
+          <button value="teacher-class-form" onClick={e => props.updateView(e.target.value)}>+</button>
+        </li>
+      </ul>
+    </div>
   )
 }

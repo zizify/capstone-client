@@ -35,8 +35,10 @@ export default class TeacherAssignments extends React.Component {
         <TeacherClassFilter
           user={this.props.user}
           updateClass={this.updateClass}
+          updateView={this.props.updateView}          
         />
         <AssignmentBar bars={this.findRelevantAssignments()} />
+        <button value="teacher-assignments-form" onClick={e => this.props.updateView(e.target.value)}>New Assignment</button>
       </div>
     );
   }

@@ -29,7 +29,7 @@ export default function ViewContainer(props) {
      } else if (props.view === 'assignments') {
         return (
             <div className="assignments-container">
-                <TeacherAssignments userdata={props.userdata} user={props.user}/>
+                <TeacherAssignments userdata={props.userdata} user={props.user} updateView={props.updateView}/>
             </div>
         )
     } else if (props.view === 'classform') {
