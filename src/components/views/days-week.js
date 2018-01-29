@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DaysOfTheWeek(props) {
+export default function DaysWeek(props) {
   const dayButtons = () => {
     const buttonProps = [
       ['Mon', '2'],
@@ -14,7 +14,7 @@ export default function DaysOfTheWeek(props) {
       return (
         <li key={index}>
           <button
-            className="daysoftheweek-button"
+            className="days-week-button"
             type="button"
             id={button[1]}
             onClick={e => props.clickDayLink(e)}
@@ -26,8 +26,10 @@ export default function DaysOfTheWeek(props) {
     });
   };
   return (
-    <div className="daysoftheweek">
-        <ul className="daysoftheweek-buttons">{dayButtons()}</ul>
+    <div className="days-week">
+      <nav>
+        <ul className="days-week-buttons">{dayButtons()}</ul>
+      </nav>
     </div>
   );
 }
