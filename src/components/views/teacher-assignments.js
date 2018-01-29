@@ -1,45 +1,21 @@
 import React from 'react';
-import TeacherClassFilter from './teacher-class-filter';
 import AssignmentBar from './assignment-bar';
 
-export default class TeacherAssignments extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      class: 'all'
-    };
-  }
-
-  updateClass = value => {
-    this.setState({
-      class: value
-    });
-  };
-
-  findRelevantAssignments = () => {
+export default function TeacherAssignments(props) {
     let relevantAssignments;
-    if (this.state.class === 'all') {
-      relevantAssignments = this.props.userdata.all;
+
+    if (props.class === 'all') {
+      relevantAssignments = props.userdata.all;
     } else {
-      relevantAssignments = this.props.userdata.all.filter(
-        each => each.className === this.state.class
+      relevantAssignments = props.userdata.all.filter(
+        each => each.className === props.class
       );
     }
-    return relevantAssignments;
-  };
-
-  render() {
-    return (
+  return (
       <div>
         <h2>TeacherAssignments</h2>
-        <TeacherClassFilter
-          user={this.props.user}
-          updateClass={this.updateClass}
-          updateView={this.props.updateView}          
-        />
-        <AssignmentBar bars={this.findRelevantAssignments()} />
-        <button value="teacher-assignment-form" onClick={e => this.props.updateView(e.target.value)}>New Assignment</button>
+        <AssignmentBar bars={relevantAssignments} />
+        <button value="teacher-assignment-form" onClick={e => props.updateView(e.target.value)}>New Assignment</button>
       </div>
     );
-  }
 }
