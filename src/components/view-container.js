@@ -7,7 +7,6 @@ import TeacherView from './views/teacher-view';
 import { connect } from 'react-redux';
 
 export default function ViewContainer(props) {
-    //Refactor StudentNew and StudentUpcoming as one component, pass down view as prop
     if (props.view === 'new' || props.view === 'upcoming') {
       return (
         <div className="assignment-view-container">
@@ -25,7 +24,7 @@ export default function ViewContainer(props) {
         );
      } else if (props.view === 'assignments' || props.view === 'teacher-grades' || props.view === 'students') {
         return (
-            <div className="assignments-container">
+            <div className="teacher-view-container">
                 <TeacherView view={props.view} userdata={props.userdata} user={props.user} updateView={props.updateView}/>
             </div>
         )
