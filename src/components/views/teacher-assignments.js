@@ -8,12 +8,21 @@ export default class TeacherAssignments extends React.Component {
       class: ''
     };
   }
+
+  updateClass = value => {
+    this.setState({
+      class: value
+    });
+  };
+
   render() {
-    
     return (
       <div>
         <h2>TeacherAssignments</h2>
-        <TeacherClassFilter user={this.props.user}/>
+        <TeacherClassFilter
+          user={this.props.user}
+          updateClass={this.updateClass}
+        />
       </div>
     );
   }
