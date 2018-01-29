@@ -14,7 +14,7 @@ export default function DaysWeek(props) {
       return (
         <li key={index}>
           <button
-            className="days-week-button"
+            className="daysoftheweek-button"
             type="button"
             id={button[1]}
             onClick={e => props.clickDayLink(e)}
@@ -26,7 +26,7 @@ export default function DaysWeek(props) {
     });
   };
   return (
-    <div className="days-week">
+    <div className="daysoftheweek">
       <nav>
         <ul className="days-week-buttons">{dayButtons()}</ul>
       </nav>
