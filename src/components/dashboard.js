@@ -26,7 +26,9 @@ export class Dashboard extends React.Component {
       view: viewString
     });
   };
+
   render() {
+    console.log(this.state);
     if (this.props.loading) {
       return <h2>Loading...</h2>;
     }
@@ -35,11 +37,8 @@ export class Dashboard extends React.Component {
       <div className="root-content-wrapper">
         <HeaderNav />
         <div className="content-wrapper">
-          <UserColumn 
-            currentUser={this.props.user} 
-            updateView={this.updateView}
-          />
-          <ViewContainer view={this.state.view} updateView={this.updateView} user={this.props.user} userdata={this.props.userdata}/>
+          <UserColumn updateView={this.updateView} />
+          <ViewContainer view={this.state.view} updateView={this.updateView}/>
         </div>
       </div>
     )
@@ -49,10 +48,7 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-    user: state.auth.currentUser,
-    userdata: state.teachers.data.teacher || state.students.data.student,
-    username: state.auth.currentUser.username,
-    name: `${currentUser.firstName} ${currentUser.lastName}`,
+    user: currentUser,
     loading: state.students.loading
   };
 };
