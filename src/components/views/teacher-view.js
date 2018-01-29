@@ -3,8 +3,9 @@ import TeacherClassFilter from './teacher-class-filter';
 import TeacherAssignments from './teacher-assignments';
 import TeacherGrades from './teacher-grades';
 import TeacherStudents from './teacher-students';
+import { connect } from 'react-redux';
 
-export default class TeacherView extends React.Component {
+export class TeacherView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,3 +44,12 @@ export default class TeacherView extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+    return {
+        user: state.auth.currentUser,
+        userdata: state.teachers.data.teacher
+    };
+  };
+  
+  export default connect(mapStateToProps)(TeacherView);
