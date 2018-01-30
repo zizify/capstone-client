@@ -3,39 +3,30 @@ import TeacherStudentsBar from './teacher-students-bar';
 import { connect } from 'react-redux';
 
 export class TeacherStudents extends React.Component {
-    createClassesObjects = () => {
-        let classes = this.props.user.classes.slice();
+    createGradeBars = () => {
+        const studentIds = this.props.user.classes.find(each => each.className === this.props.class).studentIds;
+        const relevantAssignments = this.props.userdata.all.filter(each => each.className === this.props.class);
+        const allStudents = relevantAssignments.reduce((newArray, assignment) => 
+            [...newArray, ...assignment.students], [])
 
-        for (let i = 0; i < classes.length; i++) {
-            classes[i].points = 0;
-            classes[i].relevantAssignments = this.props.userdata.all.filter(each => each.className === classes[i].className);
-            for (let j = 0; j < classes[i].relevantAssignments.length; j++) {
-                classes[i].points += classes[i].relevantAssignments[j].points;
-            }
-        }
+        const relevantPoints = relevantAssignments.reduce((points, assignment) => 
+            points + assignment.points, 0)
+        
+        const studentGrades = allStudents.reduce((obj, student) => {
+            obj[student.username]
+                ? obj[student.username] += student.pointsEarned
+                : obj[student.username] = student.pointsEarned
+            return obj
+        }, {})
 
-        if (this.props.class !== 'all') {
-            let classObject = classes.filter(each => each.className === this.props.class)[0]
-            classObject.studentGrades = {}
-            for (let i = 0; i < classObject.studentIds.length; i++) {
-                classObject.studentGrades[[classObject.studentIds[i]]] = 0
-                for (let j = 0; j < classObject.relevantAssignments.length; j++) {
-                    let relevantStudent = classObject.relevantAssignments[j].students.filter(each => each.username === classObject.studentIds[i])[0];
-                    
-                    if (relevantStudent.grade) {
-                        classObject.studentGrades[[classObject.studentIds[i]]] += relevantStudent.pointsEarned
-                    }
-                }
-            }
-            return <TeacherStudentsBar points={classObject.points} studentIds={classObject.studentIds} studentGrades={classObject.studentGrades} />
-        }
+        return <TeacherStudentsBar points={relevantPoints} studentIds={studentIds} studentGrades={studentGrades} />
     }
 
     render() {
         return (
             <div className="teacher-students-container">
                 <h2>Teacher Students</h2>
-                {this.createClassesObjects()}
+                {this.props.class !== 'all' ? this.createGradeBars() : ''}
             </div>
         )
     }
