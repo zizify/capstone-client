@@ -37,3 +37,36 @@ export const fetchTeacherData = () => (dispatch, getState) => {
     .then(TEACHER => dispatch(fetchTeacherDataSuccess(TEACHER)))
     .catch(error => dispatch(fetchTeacherDataError(error)));
 };
+export const fetchCreateNewClass = (e) => (dispatch, getState) => {
+const userIds = e.target.usernames.value.split(', ')
+const authToken = getState().auth.authToken
+fetch(`${API_BASE_URL}/users/class/create`, {
+  method: 'POST',
+  body: JSON.stringify({
+    className: e.target.name.value,
+    userIds
+    }),
+  headers: {
+  'Content-Type': 'application/json',
+  Accept: 'application/json',
+  Authorization: `Bearer ${authToken}`
+    }
+  })
+}
+
+export const fetchCreateNewAssignment = (e) => (dispatch, getState) => {
+const userIds = e.target.usernames.value.split(', ')
+const authToken = getState().auth.authToken
+fetch(`${API_BASE_URL}/users/class/create`, {
+  method: 'POST',
+  body: JSON.stringify({
+    className: e.target.name.value,
+    userIds
+    }),
+  headers: {
+  'Content-Type': 'application/json',
+  Accept: 'application/json',
+  Authorization: `Bearer ${authToken}`
+    }
+  })
+}

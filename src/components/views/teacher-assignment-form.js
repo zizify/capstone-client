@@ -1,31 +1,34 @@
 import React from 'react';
+import { fetchCreateNewAssignment } from '../../actions/teachers.js';
+import { connect } from 'react-redux';
 
-export default class TeacherAssignmentForm extends React.Component {
-
+export class TeacherAssignmentForm extends React.Component {
+  constructor(props){
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.name.value, e.target.usernames.value);
-    const userIds = e.target.usernames.value.split(', ')
-    const authToken = localStorage.authToken;
-    fetch('http://localhost:8080/api/users/class/create', {
-      method: 'POST',
-      body: JSON.stringify({
-        className: e.target.name.value,
-        userIds
-      }),
-      headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: `Bearer ${authToken}`
-    }
+    this.props.dispatch(fetchCreateNewAssignment(e));
+  }
+
+  getClassNames(){
+    return this.props.classes.map((each, index) => {
+      console.log(each.className);
+      return <option
+        key={index}
+         value={each.className}>{each.className}
+       </option>
     })
   }
   render(){
+    console.log(this.props)
     return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            ClassName:
-            <input type="text" name="name" />
+            <select name="classes">
+              {this.getClassNames()}
+            </select>
           </label>
           <label>
             Student Usernames:
@@ -36,3 +39,11 @@ export default class TeacherAssignmentForm extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    classes: state.auth.currentUser.classes
+  };
+};
+
+export default connect(mapStateToProps)(TeacherAssignmentForm);
