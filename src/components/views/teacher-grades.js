@@ -33,7 +33,7 @@ export class TeacherGrades extends React.Component {
   };
 
   render() {
-    console.log('TA.STATE', this.state);
+    //console.log('TA.STATE', this.state);
     if (this.props.class !== 'all') {
       return (
         <div className="teacher-grades-container">
