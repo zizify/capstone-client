@@ -33,7 +33,6 @@ export class TeacherGrades extends React.Component {
   };
 
   render() {
-    //console.log('TA.STATE', this.state);
     if (this.props.class !== 'all') {
       return (
         <div className="teacher-grades-container">
@@ -64,7 +63,6 @@ export class TeacherGrades extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('TEACHER-GRADES', state);
   return {
     user: state.auth.currentUser,
     userdata: state.teachers.data.teacher
