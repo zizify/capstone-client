@@ -46,6 +46,7 @@ export class TeacherGrades extends React.Component {
           </select>
           {this.state.id ? (
             <TeacherGradeBar
+              id={this.state.id}
               students={
                 this.props.userdata.all.find(each => each._id === this.state.id)
                   .students

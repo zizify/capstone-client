@@ -1,32 +1,36 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import { fetchTeacherComment } from '../../actions/teachers.js'; 
 
 export default function TeacherGradeBar(props) {
   const onSubmit = e => {
     e.preventDefault();
-    console.log('1', e.target.value)
+    //props.dispatch(fetchTeacherComment(e, props.students[0].username, props.id))
     e.target.teacherComment.value = '';
-    console.log('2', e.target.value)
   };
-  console.log('teacherGradesBar', props.students);
+  console.log('teacherGradesBar', props);
   const studentGradesBar = props.students.map((each, index) => {
     return (
       <Collapsible
         trigger={`${each.username} ${each.grade}% ${each.pointsEarned}`}
         key={index}
       >
-        <input type="number" id="points" size="1" />
-        <label>
-          <textarea
-            type="textarea"
-            id="teacherComment"
-            name="sss"
-            // onChange={e => console.log(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Submit" />
+        <form onSubmit={e => onSubmit(e)}>
+          <input type="number" id="pointsEarned" size="1" />
+          <label>
+            <textarea
+              type="textarea"
+              id="teacherComment"
+              name="teacherComment"
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </Collapsible>
     );
   });
-  return <form onSubmit={e => onSubmit(e)}>{studentGradesBar}</form>;
+  return <div>{studentGradesBar} </div>;
 }
+
+
+//POST /assignments/teacher/update/:id

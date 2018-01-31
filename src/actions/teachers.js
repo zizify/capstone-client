@@ -54,6 +54,26 @@ fetch(`${API_BASE_URL}/users/class/create`, {
   })
 }
 
+
+export const fetchTeacherComment = (e, student, id) => (dispatch, getState) => {
+  console.log('fetch post comment')
+  const userIds = e.target.usernames.value.split(', ')
+  const authToken = getState().auth.authToken
+  fetch(`${API_BASE_URL}/assignments/teacher/update/${id}`, {
+    method: 'POST',
+    body: JSON.stringify({
+      student,
+      pointsEarned: e.target.pointsEarned.value,
+      comments: e.target.teacherComment.value
+      }),
+    headers: {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    Authorization: `Bearer ${authToken}`
+      }
+    })
+  }
+
 export const fetchCreateNewAssignment = (e) => (dispatch, getState) => {
 const userIds = e.target.usernames.value.split(', ')
 const authToken = getState().auth.authToken
