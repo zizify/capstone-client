@@ -23,7 +23,7 @@ export class TeacherView extends React.Component {
       if (view === 'assignments') {
           return <TeacherAssignments updateView={this.props.updateView} class={this.state.class} />
       } else if (view === 'teacher-grades') {
-          return <TeacherGrades />
+          return <TeacherGrades class={this.state.class}/>
       } else if (view === 'students') {
           return <TeacherStudents class={this.state.class}/>
       }
