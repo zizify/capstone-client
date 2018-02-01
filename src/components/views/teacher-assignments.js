@@ -13,15 +13,26 @@ export class TeacherAssignments extends React.Component {
           each => each.className === this.props.class
         );
       }
-      
+
       return relevantAssignments;
+    }
+
+    renderAssignmentBar = () => {
+      if(this.findRelevantAssignments()) {
+        console.log('if part')
+        return <AssignmentBar bars={this.findRelevantAssignments()}/>
+      }
+      else {
+        console.log('else part')
+        return "";
+      }
     }
 
     render() {
       return (
           <div>
             <h2>TeacherAssignments</h2>
-            <AssignmentBar bars={this.findRelevantAssignments()} />
+            {this.renderAssignmentBar()}
             <button value="teacher-assignment-form" onClick={e => this.props.updateView(e.target.value)}>New Assignment</button>
           </div>
         );

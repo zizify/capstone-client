@@ -26,14 +26,38 @@ export class TeacherAssignmentForm extends React.Component {
     return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            <select name="classes">
+            <select name="className">
               {this.getClassNames()}
             </select>
           </label>
-          <label>
-            Student Usernames:
-            <textarea type="textarea" name="usernames" />
-          </label>
+            <label>
+              Assignment Name:
+              <input type="text" name="assignmentName"></input>
+            </label>
+            <label>
+              Assignment Subject:
+              <input type="text" name="assignmentSubject"></input>
+            </label>
+            <label>
+              Assignment Objectives:
+              <textarea type="textarea" name="objectives"></textarea>
+            </label>
+            <label>
+              Assignment Instructions:
+              <textarea type="textarea" name="instructions"></textarea>
+            </label>
+            <label>
+              Assignment Points Possible:
+              <input type="text" name="pointsPossible"></input>
+            </label>
+            <label>
+              Assigned:
+              <input type="date" name="assignDate"></input>
+            </label>
+            <label>
+              Due Date:
+              <input type="date" name="dueDate"></input>
+            </label>
           <input type="submit" value="Submit" />
         </form>
     )
