@@ -126,18 +126,3 @@ export const fetchCreateNewAssignment = (e) => (dispatch, getState) => {
     .then(result => dispatch(fetchTeacherAssignmentSuccess(result)))
     .catch(err => dispatch(fetchTeacherAssignmentError(err)))
 }
-	const userIds = e.target.usernames.value.split(', ');
-	const authToken = getState().auth.authToken;
-	fetch(`${API_BASE_URL}/users/class/create`, {
-		method: 'POST',
-		body: JSON.stringify({
-			className: e.target.name.value,
-			userIds
-		}),
-		headers: {
-			'Content-Type': 'application/json',
-			Accept: 'application/json',
-			Authorization: `Bearer ${authToken}`
-		}
-	});
-};
