@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import moment from 'moment';
 
 export default function AssignmentBar(props){
   let bars = props.bars;
@@ -7,7 +8,7 @@ export default function AssignmentBar(props){
   const mappedBars = bars.map((each, index) => {
     return (
       <Collapsible
-        trigger={`${each.className}${each.title}${each.dueDate.date}`}
+        trigger={`${each.className} | ${each.title} | ${moment(each.dueDate.date).format('dddd, MMMM D')}`}
         className="student-assignment-card"
         key={index}
         >
