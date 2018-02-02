@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchCreateNewClass } from '../../actions/teachers.js';
+import { fetchCreateNewClass } from '../../actions/auth.js';
 import { connect } from 'react-redux';
 
 export class TeacherClassForm extends React.Component {

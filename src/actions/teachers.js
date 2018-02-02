@@ -29,18 +29,6 @@ const fetchTeacherAssignmentError = error => ({
   error
 });
 
-export const FETCH_TEACHER_CLASS_SUCCESS = 'FETCH_TEACHER_CLASS_SUCCESS';
-const fetchTeacherClassSuccess = newClass => ({
-  type: FETCH_TEACHER_CLASS_SUCCESS,
-  newClass
-});
-
-export const FETCH_TEACHER_CLASS_ERROR = 'FETCH_TEACHER_CLASS_ERROR';
-const fetchTeacherClassError = error => ({
-  type: FETCH_TEACHER_CLASS_ERROR,
-  error
-});
-
 // Makes Fetch to TEACHER Data Endpoint
 export const fetchTeacherData = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
@@ -61,31 +49,6 @@ export const fetchTeacherData = () => (dispatch, getState) => {
 		.then(TEACHER => dispatch(fetchTeacherDataSuccess(TEACHER)))
 		.catch(error => dispatch(fetchTeacherDataError(error)));
 };
-export const fetchCreateNewClass = (e) => (dispatch, getState) => {
-	const userIds = e.target.usernames.value.split(', ');
-	const authToken = getState().auth.authToken;
-	fetch(`${API_BASE_URL}/users/class/create`, {
-		method: 'POST',
-		body: JSON.stringify({
-			className: e.target.name.value,
-			userIds
-		}),
-		headers: {
-			'Content-Type': 'application/json',
-			Accept: 'application/json',
-			Authorization: `Bearer ${authToken}`
-		}
-	}).then(res => {
-		if(!res.ok) {
-			return Promise.reject(res.statusText);
-		}
-		return res.json();
-	})
-	.then(result =>
-	dispatch(fetchTeacherClassSuccess(result)))
-	.catch(err => dispatch(fetchTeacherAssignmentError(err)))
-};
-
 
 export const fetchTeacherComment = (e, student, id) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;

@@ -3,7 +3,9 @@ import {
     CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_SUCCESS,
-    AUTH_ERROR
+    AUTH_ERROR,
+    FETCH_TEACHER_CLASS_SUCCESS,
+    FETCH_TEACHER_CLASS_ERROR
 } from '../actions/auth';
 
 const initialState = {
@@ -39,5 +41,24 @@ export default function reducer(state = initialState, action) {
             error: action.error
         });
     }
+
+    else if (action.type === FETCH_TEACHER_CLASS_SUCCESS) {
+      let newData = { ...state.currentUser }
+      newData.classes = [...newData.classes, action.newClass]
+      console.log('This is the state',state)
+      console.log('This is the action', action)
+      const newState = Object.assign({}, state, {
+       currentUser: newData,
+       loading: false,
+       error: null
+     });
+     console.log('newState', newState)
+     return newState;
+   } else if (action.type === FETCH_TEACHER_CLASS_ERROR) {
+     return Object.assign({}, state, {
+       error: action.error,
+       loading: false
+     });
+   }
     return state;
 }
