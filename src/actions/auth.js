@@ -137,6 +137,7 @@ export const fetchCreateNewClass = (e) => (dispatch, getState) => {
 	})
 	.then(result => {
     console.log('result' ,result)
-	dispatch(fetchTeacherClassSuccess(result))})
+	dispatch(fetchTeacherClassSuccess(result))
+  })
 	.catch(err => dispatch(fetchTeacherClassError(err)))
 };
