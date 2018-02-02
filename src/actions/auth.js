@@ -33,6 +33,18 @@ export const authError = error => ({
     error
 });
 
+export const FETCH_TEACHER_CLASS_SUCCESS = 'FETCH_TEACHER_CLASS_SUCCESS';
+const fetchTeacherClassSuccess = newClass => ({
+  type: FETCH_TEACHER_CLASS_SUCCESS,
+  newClass
+});
+
+export const FETCH_TEACHER_CLASS_ERROR = 'FETCH_TEACHER_CLASS_ERROR';
+const fetchTeacherClassError = error => ({
+  type: FETCH_TEACHER_CLASS_ERROR,
+  error
+});
+
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
@@ -50,7 +62,7 @@ export const login = (username, password) => dispatch => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            
+
             body: JSON.stringify({
                 username,
                 password
@@ -101,4 +113,31 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             dispatch(clearAuth());
             clearAuthToken(authToken);
         });
+};
+
+export const fetchCreateNewClass = (e) => (dispatch, getState) => {
+	const userIds = e.target.usernames.value.split(', ');
+	const authToken = getState().auth.authToken;
+	fetch(`${API_BASE_URL}/users/class/create`, {
+		method: 'POST',
+		body: JSON.stringify({
+			className: e.target.name.value,
+			userIds
+		}),
+		headers: {
+			'Content-Type': 'application/json',
+			Accept: 'application/json',
+			Authorization: `Bearer ${authToken}`
+		}
+	}).then(res => {
+		if(!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+		return res.json();
+	})
+	.then(result => {
+    console.log('result' ,result)
+	dispatch(fetchTeacherClassSuccess(result))
+  })
+	.catch(err => dispatch(fetchTeacherClassError(err)))
 };
