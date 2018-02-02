@@ -21,6 +21,8 @@ export default function AssignmentBar(props){
     )
   })
   return (
-    <div>{mappedBars}</div>
+    <div
+      className="teacher-assignment-card-container"
+      >{mappedBars}</div>
   )
   }

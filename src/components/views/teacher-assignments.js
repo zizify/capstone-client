@@ -30,7 +30,7 @@ export class TeacherAssignments extends React.Component {
 
     render() {
       return (
-          <div>
+          <div className="teacher-assignments-container">
             <h2>TeacherAssignments</h2>
             {this.renderAssignmentBar()}
             <button value="teacher-assignment-form" onClick={e => this.props.updateView(e.target.value)}>New Assignment</button>

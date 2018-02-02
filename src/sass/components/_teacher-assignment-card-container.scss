@@ -1,0 +1,35 @@
+.teacher-assignments-container {
+  text-align: center;
+
+  & button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    background-color: orange;
+    width: 100%;
+    color: white;
+    font-size: 2rem;
+    border-radius: 3px;
+  }
+}
+
+.teacher-assignment-card-container {
+  overflow: auto;
+  max-height: 500px;
+
+  & .Collapsible {
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+  }
+
+  & .student-assignment-card {
+    padding: 1rem 2rem;
+    background-color: white;
+    color: black;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}

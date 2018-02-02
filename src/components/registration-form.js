@@ -19,23 +19,23 @@ export class RegistrationForm extends React.Component {
     render() {
         return (
             <form
-                className="login-form"
+                className="registration-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
-                )}> <div className="login-form__name">
-                        <Field  
-                        component={Input} 
-                        type="text" 
-                        name="firstName" 
-                        placeholder="First Name" 
+                )}> <div className="registration-form__name">
+                        <Field
+                        component={Input}
+                        type="text"
+                        name="firstName"
+                        placeholder="First Name"
                         />
-                  <Field 
-                  component={Input} 
-                  type="text" 
+                  <Field
+                  component={Input}
+                  type="text"
                   name="lastName"
                   placeholder="Last Name"
                   />
-                
+
                 </div>
                 <Field
                     component={Input}
@@ -44,7 +44,7 @@ export class RegistrationForm extends React.Component {
                      validate={[required, nonEmpty, isTrimmed]}
                      placeholder="Username"
                  />
-                <div className="login-form__password">
+               <div className="registration-form__password">
                 <Field
                     component={Input}
                     type="password"
@@ -60,7 +60,7 @@ export class RegistrationForm extends React.Component {
                     placeholder="Confirm Password"
                 />
                 </div>
-                <div className="login-form__isTeacher">
+                <div className="registration-form__isTeacher">
                 <label htmlFor="isTeacher">Are you a Teacher?</label>
                   <Field
                   component= {Input}
@@ -69,7 +69,7 @@ export class RegistrationForm extends React.Component {
                   />
                   </div>
                 <button
-                    className="login-form__button"
+                    className="registration-form__button"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register

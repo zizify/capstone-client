@@ -1,0 +1,56 @@
+.teacher-grades-container {
+  text-align: center;
+
+  & select {
+    width: 100%;
+    height: 3rem;
+    font-size: 2rem;
+    border: none;
+    margin-bottom: 5rem;
+  }
+
+  & .teacher-assignments-grades-bar {
+    overflow: auto;
+    max-height: 500px;
+
+    & .Collapsible {
+      background-color: white;
+      color: black;
+      padding: 1rem 2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 3px;
+
+      & .Collapsible__contentOuter form {
+        margin: 0 auto;
+
+        & button {
+          padding: 1rem 2rem;
+          font-size: 2rem;
+          background-color: orange;
+          color: white;
+          border: none;
+          outline: none;
+          border-radius: 3px;
+        }
+
+        &  textarea {
+          width: 97%;
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        display: flex;
+        flex-direction: column;
+        color: black;
+        width: 75%;
+
+        & input {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          height: 3rem;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

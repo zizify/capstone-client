@@ -1,0 +1,26 @@
+.teacher-class-filter-container {
+
+  & ul {
+    list-style: none;
+    margin-bottom: 4rem;
+    padding-left: 0;
+
+    & li {
+      display: inline-block;
+
+      & button {
+        padding: .6rem 2rem;
+        border: none;
+        outline: none;
+        background-color: white;
+        color: black;
+        margin-right: 2px;
+        cursor: pointer;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 3px;
+        opacity: .9;
+      }
+    }
+  }
+}

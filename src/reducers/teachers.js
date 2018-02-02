@@ -3,7 +3,9 @@ import {
   FETCH_TEACHER_DATA_SUCCESS,
   FETCH_TEACHER_DATA_ERROR,
   FETCH_TEACHER_ASSIGNMENT_SUCCESS,
-  FETCH_TEACHER_ASSIGNMENT_ERROR
+  FETCH_TEACHER_ASSIGNMENT_ERROR,
+  FETCH_TEACHER_CLASS_SUCCESS,
+  FETCH_TEACHER_CLASS_ERROR
 } from '../actions/teachers';
 
 const initialState = {
@@ -46,5 +48,19 @@ export default (state = initialState, action) => {
       loading: false
     });
   }
+  else if (action.type === FETCH_TEACHER_CLASS_SUCCESS) {
+    console.log(state)
+    return Object.assign({}, state, {
+     data: state,
+     loading: false,
+     error: null
+   });
+   console.log(state)
+ } else if (action.type === FETCH_TEACHER_CLASS_ERROR) {
+   return Object.assign({}, state, {
+     error: action.error,
+     loading: false
+   });
+ }
   return state;
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
 import { fetchTeacherComment } from '../../actions/teachers.js';
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux';
 
 export class TeacherGradeBar extends React.Component {
   constructor(props) {
@@ -19,19 +19,21 @@ export class TeacherGradeBar extends React.Component {
     return students.map((each, index) => {
     return (
       <Collapsible
+        className="collapsible-teacher-grade-form"
         trigger={`${each.username} ${each.grade}% ${each.pointsEarned}`}
         key={index}
       >
         <form onSubmit={e => this.onSubmit(e, each.username)}>
-          <input type="number" id="pointsEarned" size="1" />
+          <input  placeholder="Enter Points Earned" type="number" id="pointsEarned" size="1" />
           <label>
             <textarea
+              placeholder="Enter Any Comments"
               type="textarea"
               id="teacherComment"
               name="teacherComment"
             />
           </label>
-          <input type="submit" value="Submit" />
+          <button type="submit" value="Submit">Submit Grade</button>
         </form>
       </Collapsible>
     );
@@ -39,7 +41,9 @@ export class TeacherGradeBar extends React.Component {
 }
 
   render() {
-    return <div>{this.studentGradesBar(this.props.students)} </div>;
+    return <div
+        className="teacher-assignments-grades-bar"
+      >{this.studentGradesBar(this.props.students)} </div>;
   }
 }
 

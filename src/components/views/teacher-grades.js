@@ -36,7 +36,6 @@ export class TeacherGrades extends React.Component {
     if (this.props.class !== 'all') {
       return (
         <div className="teacher-grades-container">
-          <h2>Teacher Grades</h2>
           <select
             name="assignments"
             onChange={e => this.updateAssignmentID(e.target.value)}

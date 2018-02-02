@@ -1,0 +1,147 @@
+.forms-container {
+  width: 70rem;
+}
+
+.teacher-form-container {
+  text-align: center;
+}
+.class-form {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & label {
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    width: 75%;
+
+    & input {
+      width: 100%;
+      border: none;
+      outline: none;
+      height: 5rem !important;
+    }
+
+    & input, & textarea {
+      margin-top: 1.2rem;
+      margin-bottom: 2rem;
+      border: none;
+      outline: none;
+      font-size: 2rem;
+      border-radius: 3px;
+      height: 10rem;
+    }
+  }
+
+  & button {
+    width: 75%;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    background-color: orange;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+  }
+
+  & h2 {
+    margin-bottom: 10rem;
+  }
+}
+
+.assignment-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+  justify-content: space-around;
+
+  & .left-side {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+
+      & input {
+        margin-top: 1.3rem;
+        font-size: 2rem;
+        height: 3.5rem;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+      }
+
+      & textarea {
+        margin-top: 1.3rem;
+        font-size: 2rem;
+        height: 3.5rem;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+      }
+
+      & select {
+        margin-top: 1.3rem;
+        font-size: 2rem;
+        height: 3.5rem;
+        border: none;
+        outline: none;
+        background-color: white;
+      }
+    }
+  }
+
+  & .right-side {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+
+        & input {
+
+          margin-top: 1.3rem;
+          font-size: 2rem;
+          height: 3.5rem;
+          border: none;
+          outline: none;
+          border-radius: 3px;
+      }
+
+      & textarea {
+        margin-top: 1.3rem;
+        font-size: 2rem;
+        height: 3.5rem;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  & button {
+    margin-top: 3rem;
+    flex: 0 1 80%;
+    padding: 2rem 0;
+    background-color: orange;
+    color: white;
+    font-size: 2rem;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s ease-in;
+  }
+
+  & button:hover {
+    transform: scale(1.15);
+  }
+}
