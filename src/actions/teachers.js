@@ -29,6 +29,18 @@ const fetchTeacherAssignmentError = error => ({
   error
 });
 
+export const FETCH_TEACHER_CLASS_SUCCESS = 'FETCH_TEACHER_CLASS_SUCCESS';
+const fetchTeacherClassSuccess = newClass => ({
+  type: FETCH_TEACHER_CLASS_SUCCESS,
+  newClass
+});
+
+export const FETCH_TEACHER_CLASS_ERROR = 'FETCH_TEACHER_CLASS_ERROR';
+const fetchTeacherClassError = error => ({
+  type: FETCH_TEACHER_CLASS_ERROR,
+  error
+});
+
 // Makes Fetch to TEACHER Data Endpoint
 export const fetchTeacherData = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
@@ -63,7 +75,15 @@ export const fetchCreateNewClass = (e) => (dispatch, getState) => {
 			Accept: 'application/json',
 			Authorization: `Bearer ${authToken}`
 		}
-	});
+	}).then(res => {
+		if(!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+		return res.json();
+	})
+	.then(result =>
+	dispatch(fetchTeacherClassSuccess(result)))
+	.catch(err => dispatch(fetchTeacherAssignmentError(err)))
 };
 
 

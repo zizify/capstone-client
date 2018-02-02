@@ -25,11 +25,15 @@ export class StudentGrades extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>StudentGrades</h2>
-        <ClassFilter classes={Object.keys(this.props.userdata.grades)} updateClass={this.updateClass}/>
-        <ClassGradeBar relevantClass={this.props.userdata.grades[this.state.className]}/>
-        <AssignmentGradeBar bars={this.findClassAssignments(this.state.className)}/>
+      <div className="student-grades-container">
+          <div className="column-1">
+            <ClassGradeBar relevantClass={this.props.userdata.grades[this.state.className]}/>
+            <AssignmentGradeBar bars={this.findClassAssignments(this.state.className)}/>
+          </div>
+          <div className="column-2">
+            <ClassFilter classes={Object.keys(this.props.userdata.grades)} updateClass={this.updateClass}/>
+          </div>
+
       </div>
     )
   }

@@ -24,8 +24,12 @@ export class TeacherAssignmentForm extends React.Component {
   render(){
     console.log(this.props)
     return (
-        <form onSubmit={this.handleSubmit}>
+        <form
+          className="assignment-form"
+          onSubmit={this.handleSubmit}>
+          <div className="left-side">
           <label>
+            Class Name:
             <select name="className">
               {this.getClassNames()}
             </select>
@@ -42,6 +46,8 @@ export class TeacherAssignmentForm extends React.Component {
               Assignment Objectives:
               <textarea type="textarea" name="objectives"></textarea>
             </label>
+            </div>
+            <div className="right-side">
             <label>
               Assignment Instructions:
               <textarea type="textarea" name="instructions"></textarea>
@@ -58,7 +64,8 @@ export class TeacherAssignmentForm extends React.Component {
               Due Date:
               <input type="date" name="dueDate"></input>
             </label>
-          <input type="submit" value="Submit" />
+            </div>
+          <button type="submit" value="Submit">Create Assignment</button>
         </form>
     )
   }

@@ -1,0 +1,25 @@
+.teacher-students-container {
+  margin-top: 20rem;
+  font-size: 2rem;
+  text-align: center;
+
+  & h2 {
+    margin-bottom: 4rem;
+  }
+
+  & ul {
+    list-style: none;
+    padding-left: 0;
+
+    & li {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.teacher-student-bar {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}

@@ -6,9 +6,7 @@ import TeacherView from './views/teacher-view';
 export default function ViewContainer(props) {
     if (props.view === 'new' || props.view === 'upcoming' || props.view === 'student-grades') {
         return (
-            <div className="student-views-container">
                 <StudentView view={props.view} />
-            </div>
         );
     } else if (props.view === 'assignments' || props.view === 'teacher-grades' || props.view === 'students') {
         return (

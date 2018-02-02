@@ -13,16 +13,18 @@ export class TeacherClassForm extends React.Component {
   }
   render(){
     return (
-        <form onSubmit={this.handleSubmit}>
+        <form
+          className="class-form"
+           onSubmit={this.handleSubmit}>
           <label>
             ClassName:
-            <input type="text" name="name" />
+            <input placeholder="Enter Class Name" type="text" name="name" />
           </label>
           <label>
             Student Usernames:
-            <textarea type="textarea" name="usernames" />
+            <textarea placeholder="Enter Student Usernames Separated by a comma space" type="textarea" name="usernames" />
           </label>
-          <input type="submit" value="Submit" />
+          <button type="submit" value="Submit">Create Class</button>
         </form>
     )
   }
