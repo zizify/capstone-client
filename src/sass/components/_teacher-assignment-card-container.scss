@@ -33,3 +33,11 @@
     cursor: pointer;
   }
 }
+
+.Collapsible__contentOuter {
+  margin-bottom: 1rem;
+}
+
+.Collapsible__trigger is-open {
+  cursor: pointer;
+}
