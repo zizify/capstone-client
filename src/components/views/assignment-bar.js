@@ -4,7 +4,6 @@ import moment from 'moment';
 
 export default function AssignmentBar(props){
   let bars = props.bars;
-  console.log(bars)
   const mappedBars = bars.map((each, index) => {
     return (
       <Collapsible

@@ -14,7 +14,6 @@ export class TeacherAssignmentForm extends React.Component {
 
   getClassNames(){
     return this.props.classes.map((each, index) => {
-      console.log(each.className);
       return <option
         key={index}
          value={each.className}>{each.className}
@@ -22,7 +21,6 @@ export class TeacherAssignmentForm extends React.Component {
     })
   }
   render(){
-    console.log(this.props)
     return (
         <form
           className="assignment-form"

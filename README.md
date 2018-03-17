@@ -1,40 +1,37 @@
-# Chalktalk
-Chalktalk is an all-in-one digital organizer for students and teachers alike. It allows teachers to give assignments and manage grades, and helps students keep track of their grades and upcoming due dates.
+# LANGU UMBALA
 
-## User Stories
-### As an unregistered user, I can...
-* Sign up
+https://boring-rosalind-f9b598.netlify.com/
 
-### As a registered user, I can...
-* Log in
-* Log out
+## Screenshots
 
-### As a student user, I can...
-#### "New"/"Upcoming" View
-* View assignments for subjects by days of week
-* View due date
-* View goals
-* View subject
-* View title
-* View points
-* View instructions
+![alt text](screenshots/chalktalk-screenshot.png "student user grade view")
 
-#### "Grades" View
-* View summary per subject
-* View recent assignments
-* View comments for each assignment
-* View grades for each assignment
-* View total points received for each assignment
-* View grade average for that subject
-* View letter grade
+![alt text](screenshots/chalktalk-screenshot-1.png "registration page")
 
-### As a teacher user, I can...
-* View all assignments
-* Create an assignment
-* Update an assignment
-* Delete an assignment
-* CRUD grades
-* CRUD feedback
-* CRUD classes
-* View all students
-* Contact parents
+## Functional Specification
+
+### Overview
+
+Chalk Talk is a school management system for teachers and students.
+
+Students can keep track of their grades and view upcoming assignments
+
+Teachers can create new assignments and update grades to keep students (soon to be parents) in the loop
+
+Non-Goals
+This version will not support the following features:
+
+* Parent Users
+* Real time communication between students and teachers
+
+
+
+#### Frontend
+
+
+- Technologies: React, Redux, HTML5, CSS3, Responsive Web Design and SASS
+
+#### Backend
+
+- Technologies: Node.js, Express, MongoDB, Passport
+- Allow users to register/login using local and jwt authentication
