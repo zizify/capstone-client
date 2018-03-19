@@ -1,4 +1,4 @@
-# LANGU UMBALA
+# Chalk Talk
 
 https://boring-rosalind-f9b598.netlify.com/
 
